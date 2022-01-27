@@ -56,6 +56,7 @@ class LoginController extends Controller
         ]);
         if (auth()->attempt(array('email' => $input['email'], 'password' => $input['password']))) {
             if (auth()->user()->role == 1) {
+
                 return redirect()->route('admin.dashboard');
             } elseif (auth()->user()->role == 2) {
                 return redirect()->route('user.dashboard');

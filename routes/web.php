@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\RoomController;
+use App\Http\Controllers\RoomTypeController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 
@@ -17,6 +19,7 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/', function () {
+
     return view('welcome');
 });
 
@@ -32,19 +35,40 @@ Route::group(['prefix' => 'admin', 'middleware' => ['isAdmin', 'auth', 'PreventB
     Route::get('dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
     Route::get('profile', [AdminController::class, 'profile'])->name('admin.profile');
 
-
+    //ผู้ดูเเลระบบ
     Route::get('admin', [AdminController::class, 'admin'])->name('admin.admin');
-    Route::post('add-admin', [AdminController::class, 'addAdmin'])->name('add.admin');
+    Route::post('add-admin', [AdminController::class, 'addAdmin'])->name('admin.add');
+    Route::get('edit-admin/{id}', [AdminController::class, 'editAdmin'])->name('admin.edit');
+    Route::post('update-admin', [AdminController::class, 'updateAdmin'])->name('admin.update');
+    Route::get('delete-admin/{id}', [AdminController::class, 'deleteAdmin'])->name('admin.delete');
 
 
 
+    //สมาชิก
     Route::get('member', [AdminController::class, 'member'])->name('admin.member');
+    Route::post('add-member', [AdminController::class, 'addMember'])->name('member.add');
+
+
+
+
     Route::get('location', [AdminController::class, 'location'])->name('admin.location');
     Route::get('contact', [AdminController::class, 'contact'])->name('admin.contact');
     Route::get('new', [AdminController::class, 'new'])->name('admin.new');
     Route::get('slide', [AdminController::class, 'slide'])->name('admin.slide');
-    Route::get('all/personnel_type', [AdminController::class, 'personnel_type'])->name('admin.personnel_type');
-    Route::get('all/personnel', [AdminController::class, 'personnel'])->name('admin.personnel');
+
+    //ประเภทห้อง
+    Route::get('all/room_type', [RoomTypeController::class, 'room_type'])->name('admin.room_type');
+    Route::post('room_type/add', [RoomTypeController::class, 'addRoom_type'])->name('room_type.add');
+    Route::get('room_type/edit/{id}', [RoomTypeController::class, 'editRoom_type'])->name('room_type.edit');
+    Route::post('room_type/update/{id}', [RoomTypeController::class, 'updateRoom_type'])->name('room_type.update');
+    Route::get('room_type/delete/{id}', [RoomTypeController::class, 'deleteRoom_type'])->name('room_type.delete');
+
+
+    //รายการหอพัก
+    Route::get('all/room', [RoomController::class, 'index'])->name('admin.room');
+
+
+
 
     Route::get('settings', [AdminController::class, 'settings'])->name('admin.settings');
 });

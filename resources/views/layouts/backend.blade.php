@@ -4,17 +4,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project-Company</title>
-    <meta name="csrf-token" content="{{csrf_token()}}">
+    <title>U-dee Apartment</title>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.css') }}">
 
     <link rel="stylesheet" href="{{ asset('assets/vendors/iconly/bold.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/vendors/simple-datatables/style.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/vendors/sweetalert2/sweetalert2.min.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/vendors/choices.js/choices.min.css')}}" />
-    <link rel="stylesheet" href="{{asset('toastr/toastr.min.css')}}" />
+    <link rel="stylesheet" href="{{ asset('assets/vendors/simple-datatables/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/vendors/sweetalert2/sweetalert2.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/vendors/choices.js/choices.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('toastr/toastr.min.css') }}" />
+
+
+
+
 
 
     <link rel="stylesheet" href="{{ asset('assets/vendors/perfect-scrollbar/perfect-scrollbar.css') }}">
@@ -32,7 +36,8 @@
 
                     <div class="d-flex justify-content-between">
                         <div class="logo">
-                            <a href="index.html"><img src="{{ asset('assets/images/logo/logosai.png') }}" alt="Logo" srcset=""></a>
+                            <a href="index.html"><img src="{{ asset('assets/images/logo/logosai.png') }}" alt="Logo"
+                                    srcset=""></a>
                         </div>
 
 
@@ -69,47 +74,47 @@
                         <!-- sidebar-item has-sub {{ request()->is('admin*') ? ' active' : '' }} -->
                         <li class="sidebar-item has-sub  {{ request()->is('admin/all/*') ? 'active' : '' }}">
                             <a href="#" class='sidebar-link'>
-                                <i class="bi bi-file-earmark-person-fill"></i>
-                                <span>บุคลากร</span>
+                                <i class="bi bi-house-door-fill"></i>
+                                <span>ห้องพัก</span>
                             </a>
                             <ul class="submenu {{ request()->is('admin/all/*') ? 'active' : '' }}">
 
 
 
 
-                                <li class="submenu-item {{ request()->is('admin/all/personnel_type') ? 'active' : '' }}">
-                                    <a href="{{route('admin.personnel_type')}}">ประเภทบุคลากร</a>
+                                <li class="submenu-item {{ request()->is('admin/all/room_type') ? 'active' : '' }}">
+                                    <a href="{{ route('admin.room_type') }}">ประเภทห้องพัก</a>
                                 </li>
-                                <li class="submenu-item {{ request()->is('admin/all/personnel') ? 'active' : '' }} ">
-                                    <a href="{{route('admin.personnel')}}">ข้อมูลบุคลากร</a>
+                                <li class="submenu-item {{ request()->is('admin/all/room') ? 'active' : '' }} ">
+                                    <a href="{{ route('admin.room') }}">ห้องพักทั้งหมด</a>
                                 </li>
                             </ul>
                         </li>
 
 
                         <li class="sidebar-item  {{ request()->is('admin/slide*') ? 'active' : '' }}">
-                            <a href="{{route('admin.slide')}}" class='sidebar-link'>
+                            <a href="{{ route('admin.slide') }}" class='sidebar-link'>
                                 <i class="bi bi-stack"></i>
                                 <span>สไลด์</span>
                             </a>
                         </li>
                         </li>
                         <li class="sidebar-item  {{ request()->is('admin/new*') ? 'active' : '' }}">
-                            <a href="{{route('admin.new')}}" class='sidebar-link'>
+                            <a href="{{ route('admin.new') }}" class='sidebar-link'>
                                 <i class="bi bi-chat-left-text"></i>
                                 <span>ข่าวสาร</span>
                             </a>
                         </li>
                         </li>
                         <li class="sidebar-item  {{ request()->is('admin/contact*') ? 'active' : '' }}">
-                            <a href="{{route('admin.contact')}}" class='sidebar-link'>
+                            <a href="{{ route('admin.contact') }}" class='sidebar-link'>
                                 <i class="bi bi-envelope-fill"></i>
                                 <span>เกี่ยวกับ</span>
                             </a>
                         </li>
                         </li>
                         <li class="sidebar-item  {{ request()->is('admin/location*') ? 'active' : '' }}">
-                            <a href="{{route('admin.location')}}" class='sidebar-link'>
+                            <a href="{{ route('admin.location') }}" class='sidebar-link'>
                                 <i class="bi bi-map-fill"></i>
                                 <span>เเผนที่</span>
                             </a>
@@ -170,7 +175,8 @@
                         <p>2021 &copy; dew</p>
                     </div>
                     <div class="float-end">
-                        <p>Crafted with <span class="text-danger"><i class="bi bi-heart"></i></span> by <a href="http://ahmadsaugi.com"> dew</a></p>
+                        <p>Crafted with <span class="text-danger"><i class="bi bi-heart"></i></span> by <a
+                                href="http://ahmadsaugi.com"> dew</a></p>
                     </div>
                 </div>
             </footer>
@@ -184,7 +190,11 @@
 
 
     <script src="{{ asset('assets/js/pages/dashboard.js') }}"></script>
+
+
     <script src="{{ asset('assets/vendors/simple-datatables/simple-datatables.js') }}"></script>
+
+
 
     <script>
         // Simple Datatable
@@ -192,15 +202,21 @@
         let dataTable = new simpleDatatables.DataTable(table1);
     </script>
 
-    <script src="{{asset('assets/js/extensions/sweetalert2.js')}}"></script>
-    <script src="{{asset('assets/vendors/sweetalert2/sweetalert2.all.min.js')}}"></script>
-
- 
+    <script src="{{ asset('jquery/jquery-3.6.0.min.js') }}"></script>
 
 
-    <script src="{{asset('assets/vendors/choices.js/choices.min.js')}}"></script>
+
+
+    <!-- <script src="{{ asset('assets/js/extensions/sweetalert2.js') }}"></script>
+    <script src="{{ asset('assets/vendors/sweetalert2/sweetalert2.all.min.js') }}"></script> -->
+
+
+
+
+    <script src="{{ asset('assets/vendors/choices.js/choices.min.js') }}"></script>
     <script src="{{ asset('assets/js/main.js') }}"></script>
 
+    @yield('script')
 </body>
 
 </html>
