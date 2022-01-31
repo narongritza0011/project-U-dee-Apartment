@@ -55,7 +55,7 @@
                         </div>
                         <label>รหัสผ่าน: </label>
                         <div class="form-group">
-                            <input type="password" class="form-control" name="password">
+                            <input type="text" class="form-control" name="password">
 
                             @error('password')
                                 <div class="my-2">

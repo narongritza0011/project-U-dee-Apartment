@@ -63,8 +63,20 @@
                                                         <td>{{ $data->id }}</td>
                                                         <td>{{ $data->name }}</td>
                                                         <td>{{ $data->room_number }}</td>
-                                                        <td>{{ $data->status }}</td>
-                                                        <td>{{ $data->created_at }}</td>
+
+                                                        <td>
+                                                            @if ($data->status == 1)
+                                                                <span class="badge bg-success">ว่างให้เช่า</span>
+                                                            @elseif ($data->status == 2)
+                                                                <span class="badge bg-warning">มีผู้เช่าเเล้ว</span>
+                                                            @elseif ($data->status == 3)
+                                                                <span class="badge bg-danger">ซ่อมเเซม</span>
+                                                            @endif
+
+                                                        </td>
+
+
+                                                        <td class="text-success">{{ $data->created_at }}</td>
                                                         <td>
                                                             <a href="{{ route('room.edit', $data->id) }}"
                                                                 class="btn btn-outline-warning "><i
