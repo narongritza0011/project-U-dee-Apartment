@@ -48,28 +48,41 @@
                                         <div class="card-body">
 
                                             <form class="form form-horizontal" method="POST"
-                                                action="{{ route('room_type.update', $room->id) }}">
+                                                action="{{ route('room_type.update', $room->id) }}"
+                                                enctype="multipart/form-data">
                                                 @csrf
                                                 <div class="form-body">
                                                     <div class="row">
 
 
+
+
                                                         <label>ภาพปก</label>
-
                                                         <div class="col-md-12">
-                                                            <div class="form-group ">
+                                                            <div class="form-group">
+                                                                <input type="hidden" name="old_image"
+                                                                    value="{{ $room->image }}" id="">
+                                                                <input class="form-control" type="file" name="image"
+                                                                    id="image" style="display:none;"
+                                                                    accept="image/png,image/jpeg">
 
-                                                                <input type="file" class="form-control" name="image">
-                                                                <div class="form-control-icon">
+                                                                <div class="mb-3">
+                                                                    <img id="preview" class="img-fluid"
+                                                                        src="{{ asset($room->image) }}" width="500"
+                                                                        height="500">
 
                                                                 </div>
 
+                                                                <button onclick="return triggerFile();"
+                                                                    class="btn btn-primary  mb-2">เลือกรูปภาพ</button>
                                                                 @error('image')
                                                                     <div class="my-2">
                                                                         <span class="text-danger">{{ $message }}</span>
                                                                     </div>
                                                                 @enderror
                                                             </div>
+
+
                                                         </div>
 
                                                         <label>ประเภทห้องพัก</label>
@@ -81,7 +94,8 @@
                                                                         placeholder="ชื่อประเภทห้อง" id="first-name-icon"
                                                                         value="{{ $room->name }}">
                                                                     <div class="form-control-icon">
-                                                                        <i class="bi bi-person"></i>
+                                                                        <i class="bi bi-house-door-fill"></i>
+
                                                                     </div>
                                                                 </div>
                                                                 @error('name')
@@ -96,11 +110,13 @@
                                                         <label>รายละเอียด</label>
 
                                                         <div class="col-md-12">
-                                                            <div class="form-group has-icon-left">
+                                                            <div class="form-group ">
                                                                 <div class="position-relative">
-                                                                    <input type="text" class="form-control" name="detail">
+
+                                                                    <textarea name="detail" class="form-control" cols="3"
+                                                                        rows="3"> {{ $room->detail }}</textarea>
                                                                     <div class="form-control-icon">
-                                                                        <i class="bi bi-person"></i>
+
                                                                     </div>
                                                                 </div>
                                                                 @error('detail')
@@ -118,8 +134,8 @@
                                                         <div class="col-md-12">
                                                             <div class="form-group has-icon-left">
                                                                 <div class="position-relative">
-                                                                    <input type="number" class="form-control"
-                                                                        name="price">
+                                                                    <input type="number" class="form-control" name="price"
+                                                                        value="{{ $room->price }}">
                                                                     <div class="form-control-icon">
                                                                         <i class="bi bi-person"></i>
                                                                     </div>
@@ -139,7 +155,7 @@
                                                             <div class="form-group has-icon-left">
                                                                 <div class="position-relative">
                                                                     <input type="text" class="form-control"
-                                                                        name="pay_first">
+                                                                        name="pay_first" value="{{ $room->pay_first }}">
                                                                     <div class="form-control-icon">
                                                                         <i class="bi bi-person"></i>
                                                                     </div>
@@ -157,8 +173,8 @@
                                                         <div class="col-md-12">
                                                             <div class="form-group has-icon-left">
                                                                 <div class="position-relative">
-                                                                    <input type="text" class="form-control"
-                                                                        name="deposit">
+                                                                    <input type="text" class="form-control" name="deposit"
+                                                                        value="{{ $room->deposit }}">
                                                                     <div class="form-control-icon">
                                                                         <i class="bi bi-person"></i>
                                                                     </div>
@@ -171,24 +187,7 @@
                                                             </div>
                                                         </div>
 
-                                                        <label>ค่ามัดจำ</label>
 
-                                                        <div class="col-md-12">
-                                                            <div class="form-group has-icon-left">
-                                                                <div class="position-relative">
-                                                                    <input type="text" class="form-control"
-                                                                        name="deposit">
-                                                                    <div class="form-control-icon">
-                                                                        <i class="bi bi-person"></i>
-                                                                    </div>
-                                                                </div>
-                                                                @error('deposit')
-                                                                    <div class="my-2">
-                                                                        <span class="text-danger">{{ $message }}</span>
-                                                                    </div>
-                                                                @enderror
-                                                            </div>
-                                                        </div>
 
 
 
@@ -226,12 +225,28 @@
     <!-- // Basic Horizontal form layout section end -->
 
     @include('sweetalert::alert')
+    <script>
+        function triggerFile() {
 
-<script>
-    
-</script>
+            $("#image").trigger("click");
+            return false
+        }
+
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function(e) {
+                    $('#preview').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        $("#image").change(function() {
+            readURL(this);
+        });
+    </script>
 
 
 @endsection
-
-

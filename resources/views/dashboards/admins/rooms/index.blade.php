@@ -60,7 +60,7 @@
 
                                                 @foreach ($room as $data)
                                                     <tr>
-                                                        <td>{{ $data->id }}</td>
+                                                        <td>{{ $loop->iteration }}</td>
                                                         <td>{{ $data->name }}</td>
                                                         <td>{{ $data->room_number }}</td>
 

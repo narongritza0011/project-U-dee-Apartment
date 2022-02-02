@@ -66,17 +66,20 @@
 
                                                     @foreach ($room as $data)
                                                         <tr>
-                                                            <td>{{ $data->id }}</td>
+                                                            <td>{{$loop->iteration}}</td>
                                                             <td><img src="{{ asset($data->image) }}" height="100"
                                                                     width="100" alt=""></td>
                                                             <td>{{ $data->name }}</td>
 
-                                                            <td>{{ $data->price }}</td>
+                                                            <td>
+                                                                <span class="badge bg-success">{{ $data->price }}</span>
+                                                            </td>
                                                             <td>{{ $data->pay_first }}</td>
                                                             <td>{{ $data->deposit }}</td>
 
-                                                            <td><a href="" class="btn btn-primary "><i
-                                                                        class="bi bi-images"></i></a></td>
+                                                            <td><a href="{{route('admin.get.image.all',$data->id)}}" class="btn btn-primary">
+                                                                    <i class="bi bi-images"></i>
+                                                                </a></td>
 
                                                             <td>
                                                                 <a href="{{ route('room_type.edit', $data->id) }}"
@@ -116,6 +119,9 @@
             </div>
         </section>
         <!-- // Basic Horizontal form layout section end -->
+
+
+
 
         @include('sweetalert::alert')
 

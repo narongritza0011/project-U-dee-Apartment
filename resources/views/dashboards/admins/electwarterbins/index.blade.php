@@ -59,10 +59,10 @@
 
                                                 @foreach ($data as $row)
                                                     <tr>
-                                                        <td>{{ $row->id }}</td>
+                                                        <td>{{ $loop->iteration }}</td>
                                                         <td>{{ $row->electricity }}</td>
                                                         <td>{{ $row->warter }}</td>
-                                                    
+
                                                         <td>{{ $row->created_at }}</td>
                                                         <td>
                                                             <a href="{{ route('elect_water.edit', $row->id) }}"
@@ -109,7 +109,7 @@
                                 @csrf
                                 <div class="form-body">
                                     <div class="row">
-                                        
+
 
 
                                         <label>ค่าน้ำ</label>

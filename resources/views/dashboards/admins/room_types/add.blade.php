@@ -50,7 +50,7 @@
                                                     @csrf
                                                     <div class=" form-body">
                                                         <div class="row">
-                                                            <label>ภาพรูปปก</label>
+                                                            <label>ภาพปก</label>
                                                             <div class="col-md-12">
                                                                 <div class="form-group">
 
@@ -59,8 +59,8 @@
                                                                         accept="image/png,image/jpeg">
 
                                                                     <div class="mb-3">
-                                                                        <img id="preview" class="img-fluid" width="300"
-                                                                            height="300">
+                                                                        <img id="preview" class="img-fluid" width="500"
+                                                                            height="500">
 
                                                                     </div>
 
@@ -86,7 +86,8 @@
                                                                         <input type="text" class="form-control"
                                                                             name="name" placeholder="" id="first-name-icon">
                                                                         <div class="form-control-icon">
-                                                                            <i class="bi bi-person"></i>
+                                                                            <i class="bi bi-house-door-fill"></i>
+
                                                                         </div>
                                                                     </div>
                                                                     @error('name')
@@ -107,7 +108,8 @@
                                                                         <input type="text" class="form-control"
                                                                             name="detail">
                                                                         <div class="form-control-icon">
-                                                                            <i class="bi bi-person"></i>
+                                                                            <i class="bi bi-text-left"></i>
+
                                                                         </div>
                                                                     </div>
                                                                     @error('detail')
@@ -129,7 +131,7 @@
                                                                         <input type="number" class="form-control"
                                                                             name="price">
                                                                         <div class="form-control-icon">
-                                                                            <i class="bi bi-person"></i>
+                                                                            <i class="bi bi-cash-stack"></i>
                                                                         </div>
                                                                     </div>
                                                                     @error('price')
@@ -150,7 +152,7 @@
                                                                         <input type="number" class="form-control"
                                                                             name="pay_first">
                                                                         <div class="form-control-icon">
-                                                                            <i class="bi bi-person"></i>
+                                                                            <i class="bi bi-cash-stack"></i>
                                                                         </div>
                                                                     </div>
                                                                     @error('pay_first')
@@ -170,7 +172,7 @@
                                                                         <input type="number" class="form-control"
                                                                             name="deposit">
                                                                         <div class="form-control-icon">
-                                                                            <i class="bi bi-person"></i>
+                                                                            <i class="bi bi-cash-stack"></i>
                                                                         </div>
                                                                     </div>
                                                                     @error('deposit')

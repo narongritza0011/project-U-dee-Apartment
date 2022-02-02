@@ -67,16 +67,24 @@ Route::group(['prefix' => 'admin', 'middleware' => ['isAdmin', 'auth', 'PreventB
 
     Route::get('slide', [AdminController::class, 'slide'])->name('admin.slide');
 
+
+
     //ประเภทห้อง
     Route::get('all/room_type', [RoomTypeController::class, 'room_type'])->name('admin.room_type');
-
-    Route::get('all/room_type/add-Form', [RoomTypeController::class, 'add_Form'])->name('admin.add.form');
-
-
+    Route::get('all/room_type/add-form', [RoomTypeController::class, 'add_Form'])->name('admin.add.form');
     Route::post('room_type/add', [RoomTypeController::class, 'addRoom_type'])->name('room_type.add');
-    Route::get('room_type/edit/{id}', [RoomTypeController::class, 'editRoom_type'])->name('room_type.edit');
+    Route::get('all/room_type/edit/{id}', [RoomTypeController::class, 'editRoom_type'])->name('room_type.edit');
     Route::post('room_type/update/{id}', [RoomTypeController::class, 'updateRoom_type'])->name('room_type.update');
     Route::get('room_type/delete/{id}', [RoomTypeController::class, 'deleteRoom_type'])->name('room_type.delete');
+
+
+    //ประเภทห้อง -อัลบั้มรูป
+    Route::get('all/room_type/get-image-all/{id}', [RoomTypeController::class, 'getImageAll'])->name('admin.get.image.all');
+    Route::get('all/room_type/get-image-all/add-form-albums', [RoomTypeController::class, 'addFormAlbum'])->name('admin.add.form.album');
+    Route::post('all/room_type/get-image-all/add-form-albums/add', [RoomTypeController::class, 'addAlbum'])->name('album.add');
+    Route::get('room_type/albums/delete/{id}', [RoomTypeController::class, 'deleteAlbum'])->name('album.delete');
+
+
 
 
     //รายการหอพัก
