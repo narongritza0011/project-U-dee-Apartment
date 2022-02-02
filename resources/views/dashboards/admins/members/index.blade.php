@@ -196,7 +196,7 @@
         })
 
 
-        $('.edit-btn').on('click', function() {
+        $('#table1 tbody').on('click', '.edit-btn', function() {
             // alert($(this).attr('admin-id'))
 
             $.ajax({
@@ -208,6 +208,7 @@
                 processData: false,
                 success: function(response) {
                     console.log(response);
+
                     if (response) {
                         $('#add-admin-form').attr('action', '{{ route('admin.update') }}')
 

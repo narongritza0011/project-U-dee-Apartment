@@ -13,4 +13,17 @@ class Room extends Model
         'room_number',
         'status',
     ];
+
+    // public function statusName()
+    // {
+    //     if ($this->status == 1) {
+    //         return 'ว่างให้เช่า';
+    //     } elseif ($this->status == 2) {
+    //         # code...
+    //         return 'มีผู้เช่าเเล้ว';
+    //     } elseif ($this->status == 3) {
+    //         # code...
+    //         return 'ซ่อมเเซม';
+    //     }
+    // }
 }

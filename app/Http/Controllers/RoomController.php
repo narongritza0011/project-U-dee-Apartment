@@ -6,6 +6,8 @@ use App\Models\Room;
 use App\Models\RoomType;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
+
 
 class RoomController extends Controller
 {
@@ -13,7 +15,7 @@ class RoomController extends Controller
     {
         $room_type = RoomType::all();
 
-        $room = Room::join('room_types', 'room_types.id', '=', 'rooms.room_type')
+        $room = Room::leftJoin('room_types', 'room_types.id', '=', 'rooms.room_type')
             ->get(['room_types.name', 'rooms.id', 'rooms.status', 'rooms.room_number', 'rooms.created_at']);
         // dd($room);
 
@@ -88,8 +90,8 @@ class RoomController extends Controller
         $request->validate(
             [
                 'room_type' => 'required|max:255',
-                'room_number' => 'required|max:255',
                 'status' => 'required|max:255',
+                'room_number' => ['required', 'string', 'max:255', Rule::unique('rooms')->ignore($id)],
 
 
             ],

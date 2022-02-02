@@ -85,6 +85,7 @@
 
 
 
+
     <div class="page-heading">
         <div class="page-title">
             <div class="row">
@@ -140,11 +141,9 @@
                                     <td>{{ $data->email }}</td>
                                     <td>{{ $data->tel }}</td>
                                     <td><a href="#" admin-route="{{ route('admin.edit', $data->id) }}"
-                                            class="btn btn-warning edit-btn"><i
-                                                                    class="bi bi-pencil-square"></i></a>
+                                            class="btn btn-warning edit-btn"><i class="bi bi-pencil-square"></i></a>
                                         <a href="{{ route('admin.delete', $data->id) }}"
-                                            class="btn btn-danger delete-btn"><i
-                                            class="bi bi-trash"></i></a>
+                                            class="btn btn-danger delete-btn"><i class="bi bi-trash"></i></a>
                                     </td>
 
 
@@ -198,13 +197,12 @@
         })
 
 
-        $('.edit-btn').on('click', function() {
+        $('#table1 tbody').on('click', '.edit-btn', function() {
             // alert($(this).attr('admin-id'))
 
             $.ajax({
                 type: 'get',
                 url: $(this).attr('admin-route'),
-
                 dataType: "json",
                 contentType: false,
                 processData: false,

@@ -25,6 +25,7 @@
     <link rel="stylesheet" href="{{ asset('assets/vendors/bootstrap-icons/bootstrap-icons.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/app.css') }}">
     <link rel="shortcut icon" href="{{ asset('assets/images/favicon.svg') }}" type="image/x-icon">
+    <script src="{{ asset('jquery/jquery-3.6.0.min.js') }}"></script>
 
 </head>
 
@@ -88,7 +89,8 @@
                                 <li class="submenu-item {{ request()->is('admin/all/room') ? 'active' : '' }} ">
                                     <a href="{{ route('admin.room') }}">ห้องพัก</a>
                                 </li>
-                                <li class="submenu-item {{ request()->is('admin/all/elect_water') ? 'active' : '' }} ">
+                                <li
+                                    class="submenu-item {{ request()->is('admin/all/elect_water') ? 'active' : '' }} ">
                                     <a href="{{ route('admin.elect_water') }}">ค่าน้ำ&ค่าไฟ</a>
                                 </li>
                             </ul>
@@ -189,10 +191,10 @@
     <script src="{{ asset('assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js') }}"></script>
     <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
 
-    <script src="{{ asset('assets/vendors/apexcharts/apexcharts.js') }}"></script>
+    {{-- <script src="{{ asset('assets/vendors/apexcharts/apexcharts.js') }}"></script> --}}
 
 
-    <script src="{{ asset('assets/js/pages/dashboard.js') }}"></script>
+    {{-- <script src="{{ asset('assets/js/pages/dashboard.js') }}"></script> --}}
 
 
     <script src="{{ asset('assets/vendors/simple-datatables/simple-datatables.js') }}"></script>
@@ -205,13 +207,12 @@
         let dataTable = new simpleDatatables.DataTable(table1);
     </script>
 
-    <script src="{{ asset('jquery/jquery-3.6.0.min.js') }}"></script>
 
 
 
 
-    <!-- <script src="{{ asset('assets/js/extensions/sweetalert2.js') }}"></script>
-    <script src="{{ asset('assets/vendors/sweetalert2/sweetalert2.all.min.js') }}"></script> -->
+    {{-- <script src="{{ asset('assets/js/extensions/sweetalert2.js') }}"></script> --}}
+    {{-- <script src="{{ asset('assets/vendors/sweetalert2/sweetalert2.all.min.js') }}"></script> --}}
 
 
 
@@ -219,7 +220,12 @@
     <script src="{{ asset('assets/vendors/choices.js/choices.min.js') }}"></script>
     <script src="{{ asset('assets/js/main.js') }}"></script>
 
+
+
+
+
     @yield('script')
+
 </body>
 
 </html>

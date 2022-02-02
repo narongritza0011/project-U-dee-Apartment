@@ -12,7 +12,7 @@
                 <div class="col-12 col-md-6 order-md-1 order-last">
                     <h3>จัดการประเภทห้องพัก</h3>
                     {{-- <a class="btn btn-success m-3" href="{{ url()->previous() }}">ย้อนกลับ</a> --}}
-                    <a class="btn btn-primary m-3" href="{{ route('admin.room_type') }}">ย้อนกลับ</a>
+                    <a class="btn btn-outline-primary m-3" href="{{ route('admin.room_type') }}">ย้อนกลับ</a>
 
                 </div>
                 <div class="col-12 col-md-6 order-md-2 order-first">
@@ -52,6 +52,26 @@
                                                 @csrf
                                                 <div class="form-body">
                                                     <div class="row">
+
+
+                                                        <label>ภาพปก</label>
+
+                                                        <div class="col-md-12">
+                                                            <div class="form-group ">
+
+                                                                <input type="file" class="form-control" name="image">
+                                                                <div class="form-control-icon">
+
+                                                                </div>
+
+                                                                @error('image')
+                                                                    <div class="my-2">
+                                                                        <span class="text-danger">{{ $message }}</span>
+                                                                    </div>
+                                                                @enderror
+                                                            </div>
+                                                        </div>
+
                                                         <label>ประเภทห้องพัก</label>
 
                                                         <div class="col-md-12">
@@ -71,6 +91,110 @@
                                                                 @enderror
                                                             </div>
                                                         </div>
+
+
+                                                        <label>รายละเอียด</label>
+
+                                                        <div class="col-md-12">
+                                                            <div class="form-group has-icon-left">
+                                                                <div class="position-relative">
+                                                                    <input type="text" class="form-control" name="detail">
+                                                                    <div class="form-control-icon">
+                                                                        <i class="bi bi-person"></i>
+                                                                    </div>
+                                                                </div>
+                                                                @error('detail')
+                                                                    <div class="my-2">
+                                                                        <span class="text-danger">{{ $message }}</span>
+                                                                    </div>
+                                                                @enderror
+                                                            </div>
+                                                        </div>
+
+
+
+                                                        <label>ค่าเช่า/เดือน</label>
+
+                                                        <div class="col-md-12">
+                                                            <div class="form-group has-icon-left">
+                                                                <div class="position-relative">
+                                                                    <input type="number" class="form-control"
+                                                                        name="price">
+                                                                    <div class="form-control-icon">
+                                                                        <i class="bi bi-person"></i>
+                                                                    </div>
+                                                                </div>
+                                                                @error('price')
+                                                                    <div class="my-2">
+                                                                        <span class="text-danger">{{ $message }}</span>
+                                                                    </div>
+                                                                @enderror
+                                                            </div>
+                                                        </div>
+
+
+                                                        <label>จ่ายล่วงหน้า</label>
+
+                                                        <div class="col-md-12">
+                                                            <div class="form-group has-icon-left">
+                                                                <div class="position-relative">
+                                                                    <input type="text" class="form-control"
+                                                                        name="pay_first">
+                                                                    <div class="form-control-icon">
+                                                                        <i class="bi bi-person"></i>
+                                                                    </div>
+                                                                </div>
+                                                                @error('pay_first')
+                                                                    <div class="my-2">
+                                                                        <span class="text-danger">{{ $message }}</span>
+                                                                    </div>
+                                                                @enderror
+                                                            </div>
+                                                        </div>
+
+                                                        <label>ค่ามัดจำ</label>
+
+                                                        <div class="col-md-12">
+                                                            <div class="form-group has-icon-left">
+                                                                <div class="position-relative">
+                                                                    <input type="text" class="form-control"
+                                                                        name="deposit">
+                                                                    <div class="form-control-icon">
+                                                                        <i class="bi bi-person"></i>
+                                                                    </div>
+                                                                </div>
+                                                                @error('deposit')
+                                                                    <div class="my-2">
+                                                                        <span class="text-danger">{{ $message }}</span>
+                                                                    </div>
+                                                                @enderror
+                                                            </div>
+                                                        </div>
+
+                                                        <label>ค่ามัดจำ</label>
+
+                                                        <div class="col-md-12">
+                                                            <div class="form-group has-icon-left">
+                                                                <div class="position-relative">
+                                                                    <input type="text" class="form-control"
+                                                                        name="deposit">
+                                                                    <div class="form-control-icon">
+                                                                        <i class="bi bi-person"></i>
+                                                                    </div>
+                                                                </div>
+                                                                @error('deposit')
+                                                                    <div class="my-2">
+                                                                        <span class="text-danger">{{ $message }}</span>
+                                                                    </div>
+                                                                @enderror
+                                                            </div>
+                                                        </div>
+
+
+
+
+
+
 
                                                         <div class="col-12 d-flex justify-content-end">
                                                             <button type="submit"
@@ -103,7 +227,11 @@
 
     @include('sweetalert::alert')
 
-
+<script>
+    
+</script>
 
 
 @endsection
+
+

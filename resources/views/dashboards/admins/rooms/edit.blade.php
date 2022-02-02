@@ -87,7 +87,7 @@
                                                         <div class="col-md-12">
                                                             <div class="form-group has-icon-left">
                                                                 <div class="position-relative">
-                                                                    <input type="text" readonly class="form-control"
+                                                                    <input type="text" class="form-control"
                                                                         name="room_number" placeholder=""
                                                                         id="first-name-icon"
                                                                         value="{{ $data->room_number }}">
