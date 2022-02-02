@@ -36,6 +36,14 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::group(['prefix' => 'admin', 'middleware' => ['isAdmin', 'auth', 'PreventBackHistory']], function () {
     Route::get('dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
     Route::get('profile', [AdminController::class, 'profile'])->name('admin.profile');
+    Route::get('location', [AdminController::class, 'location'])->name('admin.location');
+    Route::get('contact', [AdminController::class, 'contact'])->name('admin.contact');
+    Route::get('slide', [AdminController::class, 'slide'])->name('admin.slide');
+    Route::get('settings', [AdminController::class, 'settings'])->name('admin.settings');
+
+
+
+
 
     //ผู้ดูเเลระบบ
     Route::get('admin', [AdminController::class, 'admin'])->name('admin.admin');
@@ -53,8 +61,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['isAdmin', 'auth', 'PreventB
 
 
 
-    Route::get('location', [AdminController::class, 'location'])->name('admin.location');
-    Route::get('contact', [AdminController::class, 'contact'])->name('admin.contact');
+
 
 
     //ข่าวสาร
@@ -65,7 +72,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['isAdmin', 'auth', 'PreventB
 
 
 
-    Route::get('slide', [AdminController::class, 'slide'])->name('admin.slide');
 
 
 
@@ -103,11 +109,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['isAdmin', 'auth', 'PreventB
     Route::post('elect_water/add', [ElectWaterController::class, 'add'])->name('elect_water.add');
     Route::post('elect_water/update/{id}', [ElectWaterController::class, 'update'])->name('elect_water.update');
     Route::get('elect_water/delete/{id}', [ElectWaterController::class, 'delete'])->name('elect_water.delete');
-
-
-
-
-    Route::get('settings', [AdminController::class, 'settings'])->name('admin.settings');
 });
 
 
