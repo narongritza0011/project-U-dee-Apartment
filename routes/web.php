@@ -5,6 +5,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ElectWaterController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\RoomController;
+use App\Http\Controllers\RoomerController;
 use App\Http\Controllers\RoomTypeController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
@@ -41,7 +42,13 @@ Route::group(['prefix' => 'admin', 'middleware' => ['isAdmin', 'auth', 'PreventB
     Route::get('slide', [AdminController::class, 'slide'])->name('admin.slide');
     Route::get('settings', [AdminController::class, 'settings'])->name('admin.settings');
 
+    //ข้อมูลผู้เข้าพัก
 
+    Route::get('roomer', [RoomerController::class, 'index'])->name('roomer.all');
+    Route::post('roomer/store', [RoomerController::class, 'store'])->name('roomer.store');
+    Route::get('roomer/edit/{id}', [RoomerController::class, 'edit'])->name('roomer.edit');
+    Route::post('roomer/update/{id}', [RoomerController::class, 'update'])->name('roomer.update');
+    Route::get('roomer/delete/{id}', [RoomerController::class, 'delete'])->name('roomer.delete');
 
 
 
@@ -53,7 +60,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['isAdmin', 'auth', 'PreventB
     Route::get('delete-admin/{id}', [AdminController::class, 'deleteAdmin'])->name('admin.delete');
 
 
-
     //สมาชิก
     Route::get('member', [AdminController::class, 'member'])->name('admin.member');
     Route::post('add-member', [AdminController::class, 'addMember'])->name('member.add');
@@ -61,16 +67,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['isAdmin', 'auth', 'PreventB
 
 
 
-
-
-
     //ข่าวสาร
     Route::get('new', [NewsController::class, 'index'])->name('admin.new');
     Route::get('get-news', [NewsController::class, 'getNews'])->name('get.news');
-
-
-
-
 
 
 
@@ -98,16 +97,14 @@ Route::group(['prefix' => 'admin', 'middleware' => ['isAdmin', 'auth', 'PreventB
     Route::post('room/add', [RoomController::class, 'add'])->name('room.add');
     Route::get('room/edit/{id}', [RoomController::class, 'edit'])->name('room.edit');
     Route::post('room/update/{id}', [RoomController::class, 'update'])->name('room.update');
-
     Route::get('room/delete/{id}', [RoomController::class, 'delete'])->name('room.delete');
 
 
     //ค่าน้ำค่าไฟ
     Route::get('all/elect_water', [ElectWaterController::class, 'index'])->name('admin.elect_water');
     Route::get('elect_water/edit/{id}', [ElectWaterController::class, 'edit'])->name('elect_water.edit');
-
-    Route::post('elect_water/add', [ElectWaterController::class, 'add'])->name('elect_water.add');
     Route::post('elect_water/update/{id}', [ElectWaterController::class, 'update'])->name('elect_water.update');
+    Route::post('elect_water/add', [ElectWaterController::class, 'add'])->name('elect_water.add');
     Route::get('elect_water/delete/{id}', [ElectWaterController::class, 'delete'])->name('elect_water.delete');
 });
 

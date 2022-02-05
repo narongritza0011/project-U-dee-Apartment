@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="{{ asset('toastr/toastr.min.css') }}" />
 
 
+    <link rel="stylesheet" href="{{ asset('datepicker/css/bootstrap-datepicker.css') }}" />
 
 
 
@@ -95,8 +96,18 @@
                                 </li>
                             </ul>
                         </li>
-
-
+                        <li class="sidebar-item  {{ request()->is('admin/roomer*') ? 'active' : '' }}">
+                            <a href="{{ route('roomer.all') }}" class='sidebar-link'>
+                                <i class="bi bi-people-fill"></i>
+                                <span>ข้อมูลผู้เข้าพัก</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item  {{ request()->is('admin/roomer*') ? 'active' : '' }}">
+                            <a href="{{ route('roomer.all') }}" class='sidebar-link'>
+                                <i class="bi bi-people-fill"></i>
+                                <span>รอย้ายออก</span>
+                            </a>
+                        </li>
                         <li class="sidebar-item  {{ request()->is('admin/slide*') ? 'active' : '' }}">
                             <a href="{{ route('admin.slide') }}" class='sidebar-link'>
                                 <i class="bi bi-stack"></i>
@@ -215,6 +226,7 @@
     {{-- <script src="{{ asset('assets/vendors/sweetalert2/sweetalert2.all.min.js') }}"></script> --}}
 
 
+    <script src="{{ asset('datepicker/js/bootstrap-datepicker.js') }}"></script>
 
 
     <script src="{{ asset('assets/vendors/choices.js/choices.min.js') }}"></script>
