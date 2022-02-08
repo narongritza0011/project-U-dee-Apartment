@@ -58,7 +58,7 @@
                                                                     <option disabled selected>กรุณาเลือก</option>
                                                                     @foreach ($data as $room)
 
-                                                                        <option value="{{ $room->room_number }}">
+                                                                        <option value="{{ $room->id }}">
                                                                             {{ $room->room_number }}</option>
                                                                     @endforeach
                                                                 </select>
@@ -220,6 +220,9 @@
                                                             <td>{{ $item->full_name }}</td>
                                                             <td>{{ $item->tel }}</td>
                                                             <td>
+                                                                <a href="{{ route('roomer.bill', $item->id) }}"
+                                                                    class="btn btn-outline-primary"><i
+                                                                        class="bi bi-printer-fill"></i></a>
                                                                 <a href="{{ route('roomer.edit', $item->id) }}"
                                                                     class="btn btn-outline-warning"><i
                                                                         class="bi bi-pencil-square"></i></a>

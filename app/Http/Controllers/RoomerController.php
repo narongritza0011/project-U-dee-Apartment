@@ -7,18 +7,20 @@ use App\Models\Roomer;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
-
+use PDF;
 
 class RoomerController extends Controller
 {
     public function index()
     {
-
+        $roomers = Roomer::leftJoin('rooms', 'rooms.id', '=', 'roomers.room_number')
+            ->get(['rooms.room_number', 'roomers.full_name', 'roomers.id', 'roomers.card_number', 'roomers.tel']);
+        // dd($roomers);
 
 
         $data = Room::all();
         // $roomers = Roomer::where('status', 1)->get();
-        $roomers = Roomer::all();
+        // $roomers = Roomer::all();
         return view('dashboards.admins.roomers.index', compact('data', 'roomers'));
     }
 
@@ -81,11 +83,18 @@ class RoomerController extends Controller
     public function edit($id)
     {
 
+
+        // $room = Roomer::leftJoin('rooms', 'rooms.id', '=', 'roomers.room_number')
+        //     ->get(['rooms.room_number']);
+        // dd($data);
+
         $room = Room::all();
 
         $data = Roomer::find($id);
         return view('dashboards.admins.roomers.edit', compact('data', 'room'));
     }
+
+
 
 
 
@@ -139,6 +148,49 @@ class RoomerController extends Controller
 
         ]);
         return redirect()->route('roomer.all')->with('success', "อัพเดทข้อมูลสำเร็จ");
+    }
+
+
+
+
+
+    public function bill($id)
+    {
+
+
+        $data = Roomer::LeftJoin('rooms', 'rooms.id', '=', 'roomers.room_number')
+            ->LeftJoin('room_types', 'room_types.id', '=', 'rooms.room_type')
+            ->get(['roomers.id', 'roomers.full_name', 'roomers.tel', 'room_types.price', 'room_types.pay_first',  'rooms.room_number', 'roomers.start_date'])->find($id);
+
+
+
+        $time = Carbon::today()->toFormattedDateString();
+        // echo $time->toDateTimeString();
+        $result =   $data['price'] + $data['pay_first'];
+
+
+
+
+        return view('dashboards.admins.roomers.bill', compact('data', 'result', 'time'));
+    }
+
+    public function printBill($id)
+    {
+
+        $data = Roomer::LeftJoin('rooms', 'rooms.id', '=', 'roomers.room_number')
+            ->LeftJoin('room_types', 'room_types.id', '=', 'rooms.room_type')
+            ->get(['roomers.id', 'roomers.full_name', 'roomers.tel', 'room_types.price', 'room_types.pay_first',  'rooms.room_number', 'roomers.start_date'])->find($id);
+
+
+
+        $time = Carbon::today()->toFormattedDateString();
+        // echo $time->toDateTimeString();
+        $result =   $data['price'] + $data['pay_first'];
+
+
+        $pdf = PDF::loadView('dashboards.admins.roomers.pdf', compact('data', 'time', 'result'));
+
+        return @$pdf->stream();
     }
 
 

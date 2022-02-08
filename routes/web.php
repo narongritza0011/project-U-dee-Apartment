@@ -10,6 +10,7 @@ use App\Http\Controllers\RoomTypeController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -47,6 +48,15 @@ Route::group(['prefix' => 'admin', 'middleware' => ['isAdmin', 'auth', 'PreventB
     Route::get('roomer', [RoomerController::class, 'index'])->name('roomer.all');
     Route::post('roomer/store', [RoomerController::class, 'store'])->name('roomer.store');
     Route::get('roomer/edit/{id}', [RoomerController::class, 'edit'])->name('roomer.edit');
+    Route::get('roomer/bill/{id}', [RoomerController::class, 'bill'])->name('roomer.bill');
+    Route::get('roomer/bill/print/{id}', [RoomerController::class, 'printBill'])->name('roomer.printBill');
+
+  
+     
+   
+
+
+
     Route::post('roomer/update/{id}', [RoomerController::class, 'update'])->name('roomer.update');
     Route::get('roomer/delete/{id}', [RoomerController::class, 'delete'])->name('roomer.delete');
 

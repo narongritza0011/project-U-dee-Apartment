@@ -102,8 +102,8 @@
                                 <span>ข้อมูลผู้เข้าพัก</span>
                             </a>
                         </li>
-                        <li class="sidebar-item  {{ request()->is('admin/roomer*') ? 'active' : '' }}">
-                            <a href="{{ route('roomer.all') }}" class='sidebar-link'>
+                        <li class="sidebar-item  {{ request()->is('admin/slide*') ? 'active' : '' }}">
+                            <a href="{{ route('admin.slide') }}" class='sidebar-link'>
                                 <i class="bi bi-people-fill"></i>
                                 <span>รอย้ายออก</span>
                             </a>

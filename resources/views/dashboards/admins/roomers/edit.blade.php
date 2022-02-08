@@ -61,8 +61,8 @@
                                                                 <select class="form-select" id="basicSelect"
                                                                     name="room_number">
                                                                     @foreach ($room as $rt)
-                                                                        <option value="{{ $rt->room_number }}"
-                                                                            {{ $data->room_number == $rt->room_number ? 'selected' : '' }}>
+                                                                        <option value="{{ $rt->id }}"
+                                                                            {{ $data->room_number == $rt->id ? 'selected' : '' }}>
                                                                             {{ $rt->room_number }}</option>
 
                                                                     @endforeach
