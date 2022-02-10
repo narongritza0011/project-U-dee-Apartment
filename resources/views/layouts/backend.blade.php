@@ -102,10 +102,18 @@
                                 <span>ข้อมูลผู้เข้าพัก</span>
                             </a>
                         </li>
-                        <li class="sidebar-item  {{ request()->is('admin/slide*') ? 'active' : '' }}">
-                            <a href="{{ route('admin.slide') }}" class='sidebar-link'>
+                        <li class="sidebar-item  {{ request()->is('admin/living*') ? 'active' : '' }}">
+                            <a href="{{ route('living.all') }}" class='sidebar-link'>
                                 <i class="bi bi-people-fill"></i>
-                                <span>รอย้ายออก</span>
+                                <span>กำลังอาศัยอยู่</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-item  {{ request()->is('admin/moveOut*') ? 'active' : '' }}">
+                            <a href="{{ route('moveOut.all') }}" class='sidebar-link'>
+                                <i class="bi bi-people-fill"></i>
+                                <span>ย้ายออกเเล้ว
+                                </span>
                             </a>
                         </li>
                         <li class="sidebar-item  {{ request()->is('admin/slide*') ? 'active' : '' }}">

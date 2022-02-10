@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ElectWaterController;
+use App\Http\Controllers\LivingRoomer;
+use App\Http\Controllers\moveOutController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\RoomController;
 use App\Http\Controllers\RoomerController;
@@ -48,17 +50,25 @@ Route::group(['prefix' => 'admin', 'middleware' => ['isAdmin', 'auth', 'PreventB
     Route::get('roomer', [RoomerController::class, 'index'])->name('roomer.all');
     Route::post('roomer/store', [RoomerController::class, 'store'])->name('roomer.store');
     Route::get('roomer/edit/{id}', [RoomerController::class, 'edit'])->name('roomer.edit');
+    Route::post('roomer/update/{id}', [RoomerController::class, 'update'])->name('roomer.update');
     Route::get('roomer/bill/{id}', [RoomerController::class, 'bill'])->name('roomer.bill');
     Route::get('roomer/bill/print/{id}', [RoomerController::class, 'printBill'])->name('roomer.printBill');
-
-  
-     
-   
-
-
-
-    Route::post('roomer/update/{id}', [RoomerController::class, 'update'])->name('roomer.update');
     Route::get('roomer/delete/{id}', [RoomerController::class, 'delete'])->name('roomer.delete');
+
+
+
+    //ข้อมูลผู้เข้าพักที่อาศัยอยู่
+    Route::get('living', [LivingRoomer::class, 'index'])->name('living.all');
+    Route::get('living/edit/{id}', [LivingRoomer::class, 'edit'])->name('living.edit');
+    Route::post('living/update/{id}', [LivingRoomer::class, 'update'])->name('living.update');
+
+
+    //ข้อมูลผู้เข้าพักที่ย้ายออกเเล้ว
+    Route::get('moveOut', [moveOutController::class, 'index'])->name('moveOut.all');
+
+
+
+
 
 
 

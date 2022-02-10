@@ -16,5 +16,6 @@ class Roomer extends Model
         'contact_other',
         'status',
         'start_date',
+        'end_date',
     ];
 }

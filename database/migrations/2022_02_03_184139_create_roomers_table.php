@@ -21,6 +21,7 @@ class CreateRoomersTable extends Migration
             $table->string('tel');
             $table->string('contact_other');
             $table->string('start_date');
+            $table->string('end_date')->nullable();
             $table->integer('status');
             $table->timestamps();
         });
