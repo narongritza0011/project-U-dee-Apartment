@@ -1,11 +1,5 @@
 @extends('layouts.backend')
 @section('content')
-
-
-
-
-
-
     <div class="page-heading">
         <div class="page-title">
             <div class="row">
@@ -115,18 +109,10 @@
 
 
         @include('sweetalert::alert')
-
-
-
-
-
-
     @endsection
     @section('script')
-
         <script>
             @if ($errors->all())
-            
                 $(window).on('load', function() {
                 $('#modal-albums').modal('show');
                 });

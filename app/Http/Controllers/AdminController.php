@@ -22,6 +22,7 @@ class AdminController extends Controller
     {
         return view('dashboards.admins.profile');
     }
+    
 
 
 
@@ -132,10 +133,7 @@ class AdminController extends Controller
     {
         return view('dashboards.admins.locations.index');
     }
-    function contact()
-    {
-        return view('dashboards.admins.contacts.index');
-    }
+   
     function new()
     {
         return view('dashboards.admins.news.index');

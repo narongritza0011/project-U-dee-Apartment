@@ -116,12 +116,12 @@
                                 </span>
                             </a>
                         </li>
-                        <li class="sidebar-item  {{ request()->is('admin/slide*') ? 'active' : '' }}">
+                        {{-- <li class="sidebar-item  {{ request()->is('admin/slide*') ? 'active' : '' }}">
                             <a href="{{ route('admin.slide') }}" class='sidebar-link'>
                                 <i class="bi bi-stack"></i>
                                 <span>สไลด์</span>
                             </a>
-                        </li>
+                        </li> --}}
                         </li>
                         <li class="sidebar-item  {{ request()->is('admin/new*') ? 'active' : '' }}">
                             <a href="{{ route('admin.new') }}" class='sidebar-link'>
@@ -133,7 +133,7 @@
                         <li class="sidebar-item  {{ request()->is('admin/contact*') ? 'active' : '' }}">
                             <a href="{{ route('admin.contact') }}" class='sidebar-link'>
                                 <i class="bi bi-envelope-fill"></i>
-                                <span>เกี่ยวกับ</span>
+                                <span>ข้อความ</span>
                             </a>
                         </li>
                         </li>
@@ -150,12 +150,12 @@
                                 <span>บัญชีของฉัน</span>
                             </a>
                         </li>
-                        <li class="sidebar-item  {{ request()->is('admin/settings*') ? 'active' : '' }}">
+                        {{-- <li class="sidebar-item  {{ request()->is('admin/settings*') ? 'active' : '' }}">
                             <a href="{{ route('admin.settings') }}" class='sidebar-link'>
                                 <i class="bi bi-gear-fill"></i>
                                 <span>ตั้งค่า</span>
                             </a>
-                        </li>
+                        </li> --}}
 
                         <li class="sidebar-item ">
 
