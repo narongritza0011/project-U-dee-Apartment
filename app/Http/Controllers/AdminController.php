@@ -129,10 +129,7 @@ class AdminController extends Controller
 
 
 
-    function location()
-    {
-        return view('dashboards.admins.locations.index');
-    }
+    
    
     function new()
     {

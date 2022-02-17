@@ -1,50 +1,71 @@
 @extends('layouts.backend')
 @section('content')
-
-
-
-
-   
-
     <div class="page-heading">
         <div class="page-title">
             <div class="row">
+                <h3>จัดการเกี่ยวกับเเละเเผนที่</h3>
                 <div class="col-12 col-md-6 order-md-1 order-last">
-                    <h3>เเผนที่</h3>
-                    <p class="text-subtitle text-muted">For user to check they list</p>
+
+
                 </div>
+
                 <div class="col-12 col-md-6 order-md-2 order-first">
                     <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">DataTable</li>
+                            <li class="breadcrumb-item"><a href="index.html">ตาราง</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">เกี่ยวกับ</li>
                         </ol>
                     </nav>
                 </div>
             </div>
         </div>
-        
+
     </div>
 
 
 
 
+    <section class="section">
 
+        <div class="card">
+            <div class="card-header">
+                ตารางข้อมูลเกี่ยวกับเเละเเผนที่
+            </div>
+            <div class="card-body">
+                <table class="table table-striped" id="table1">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>ชื่อ-นามสกุล</th>
+                            <th>อีเมล์</th>
+                            <th>เบอร์ติดต่อ</th>
 
+                            <th>จัดการ</th>
 
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($data as $item)
+                            <tr>
+                                <td>{{ $loop->iteration }}</td>
 
-    <script src="{{ asset('assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js') }}"></script>
-    <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
+                                <td>{{ $item->about }}</td>
+                                <td>{{ $item->tel }}</td>
+                                <td>{{ $item->email }}</td>
 
-    <script src="{{ asset('assets/vendors/simple-datatables/simple-datatables.js') }}"></script>
+                                <td>
+                                    <a href="{{ route('location.edit', $item->id) }}" class="btn btn-outline-warning "><i
+                                            class="bi bi-pencil-square"></i></a>
 
+                                </td>
 
-    <script>
-        // Simple Datatable
-        let table1 = document.querySelector('#table1');
-        let dataTable = new simpleDatatables.DataTable(table1);
-    </script>
+                            </tr>
+                        @endforeach
 
-
-    <script src="{{ asset('assets/js/main.js') }}"></script>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        @include('sweetalert::alert')
+    </section>
 @endsection

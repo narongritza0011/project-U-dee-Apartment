@@ -139,8 +139,8 @@
                         </li>
                         <li class="sidebar-item  {{ request()->is('admin/location*') ? 'active' : '' }}">
                             <a href="{{ route('admin.location') }}" class='sidebar-link'>
-                                <i class="bi bi-map-fill"></i>
-                                <span>เเผนที่</span>
+                                <i class="bi bi-info-circle-fill"></i>
+                                <span>เกี่ยวกับ</span>
                             </a>
                         </li>
 

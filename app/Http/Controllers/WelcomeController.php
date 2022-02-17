@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Albums;
+use App\Models\Contact;
 use App\Models\News;
 use App\Models\RoomType;
 use Illuminate\Http\Request;
@@ -16,9 +17,11 @@ class WelcomeController extends Controller
         // $data = RoomType::leftJoin('albums', 'albums.room_type', '=', 'room_types.id')
         //     ->get(['room_types.*',  'albums.name']);
         //  dd($data);
+        $contacts = Contact::all();
+
         $albums = Albums::all();
         $data = RoomType::all();
-        return view('welcome', compact('data', 'albums','news'));
+        return view('welcome', compact('data', 'albums', 'news', 'contacts'));
     }
 
 

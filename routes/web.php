@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\ElectWaterController;
 use App\Http\Controllers\LivingRoomer;
@@ -42,11 +43,15 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::group(['prefix' => 'admin', 'middleware' => ['isAdmin', 'auth', 'PreventBackHistory']], function () {
     Route::get('dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
-    Route::get('location', [AdminController::class, 'location'])->name('admin.location');
     Route::get('slide', [AdminController::class, 'slide'])->name('admin.slide');
     Route::get('settings', [AdminController::class, 'settings'])->name('admin.settings');
 
 
+
+    //จัดการข้อมูลเกี่ยวกับ เเละ เเผนที่ ของ หน้าบ้าน
+    Route::get('location', [ContactController::class, 'index'])->name('admin.location');
+    Route::get('location/edit/{id}', [ContactController::class, 'edit'])->name('location.edit');
+    Route::post('location/update/{id}', [ContactController::class, 'update'])->name('location.update');
 
 
     // ข้อมูลของฉัน

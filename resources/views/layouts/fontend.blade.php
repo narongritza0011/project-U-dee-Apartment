@@ -25,7 +25,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap"
         rel="stylesheet">
 
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@100&display=swap" rel="stylesheet">
 
 
 
@@ -123,50 +125,47 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="footer-col first">
-                        <h6>About Website</h6>
-                        <p class="p-small">He oppose at thrown desire of no. Announcing impression unaffected
-                            day his are unreserved indulgence. Him hard find read are you</p>
+                    <div class="footer-col first third">
+                        @foreach ($contacts as $contact)
+                            <h6>เกี่ยวกับ</h6>
+                            <p class="p-small">{{ $contact->about }}</p>
+
+                            <span class="fa-stack">
+                                <a href="{{ $contact->facebook_link }}" target="_blank">
+                                    <i class="fas fa-circle fa-stack-2x"></i>
+                                    <i class="fab fa-facebook-f fa-stack-1x"></i>
+                                </a>
+                            </span>
+
+
+                            <span class="fa-stack">
+                                <a href="{{ $contact->ig_link }}" target="_blank">
+                                    <i class="fas fa-circle fa-stack-2x"></i>
+                                    <i class="fab fa-instagram fa-stack-1x"></i>
+                                </a>
+                            </span>
                     </div> <!-- end of footer-col -->
                     <div class="footer-col second">
-                        <h6>Links</h6>
+                        <h6>ช่องท่างติดต่อ</h6>
                         <ul class="list-unstyled li-space-lg p-small">
-                            <li>Important: <a href="terms.html">Terms & Conditions</a>, <a href="privacy.html">Privacy
-                                    Policy</a></li>
-                            <li>Useful: <a href="#">Colorpicker</a>, <a href="#">Icon Library</a>, <a
-                                    href="#">Illustrations</a></li>
-                            <li>Menu: <a href="#header">Home</a>, <a href="#details">Details</a>, <a
-                                    href="#services">Services</a>, <a href="#contact">Contact</a></li>
+                            <p class="p-small">เบอร์ติดต่อ: {{ $contact->tel }}</p>
+                            <p class="p-small">อีเมล์: {{ $contact->email }}</p>
+                            <p class="p-small">facebook: {{ $contact->facebook_name }}</p>
+
                         </ul>
                     </div> <!-- end of footer-col -->
                     <div class="footer-col third">
-                        <span class="fa-stack">
-                            <a href="#your-link">
-                                <i class="fas fa-circle fa-stack-2x"></i>
-                                <i class="fab fa-facebook-f fa-stack-1x"></i>
-                            </a>
-                        </span>
-                        <span class="fa-stack">
-                            <a href="#your-link">
-                                <i class="fas fa-circle fa-stack-2x"></i>
-                                <i class="fab fa-twitter fa-stack-1x"></i>
-                            </a>
-                        </span>
-                        <span class="fa-stack">
-                            <a href="#your-link">
-                                <i class="fas fa-circle fa-stack-2x"></i>
-                                <i class="fab fa-pinterest-p fa-stack-1x"></i>
-                            </a>
-                        </span>
-                        <span class="fa-stack">
-                            <a href="#your-link">
-                                <i class="fas fa-circle fa-stack-2x"></i>
-                                <i class="fab fa-instagram fa-stack-1x"></i>
-                            </a>
-                        </span>
-                        <p class="p-small">We would love to hear from you <a
-                                href="mailto:contact@site.com"><strong>contact@site.com</strong></a></p>
+                        <h6>เเผนที่</h6>
+
+                        <iframe src="{{ $contact->map }}" width="300" height="300" style="border:0;"
+                            allowfullscreen="" loading="lazy">
+                        </iframe>
+
+
+
+
                     </div> <!-- end of footer-col -->
+                    @endforeach
                 </div> <!-- end of col -->
             </div> <!-- end of row -->
         </div> <!-- end of container -->
@@ -179,13 +178,13 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <p class="p-small">Copyright © <a href="#your-link">Your name</a></p>
+                    <p class="p-small">Copyright © Udee Apartment</p>
                 </div> <!-- end of col -->
             </div> <!-- enf of row -->
 
             <div class="row">
                 <div class="col-lg-12">
-                    <p class="p-small">Distributed By <a href="https://themewagon.com/">Themewagon</a></p>
+                    <p class="p-small">Distributed By <a href="https://themewagon.com/">Udee-apartment</a></p>
                 </div> <!-- end of col -->
             </div> <!-- enf of row -->
         </div> <!-- end of container -->

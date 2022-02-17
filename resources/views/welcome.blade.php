@@ -75,20 +75,17 @@
                             <ul class="list-unstyled li-space-lg">
                                 <li class="d-flex">
                                     <i class="fas fa-square"></i>
-                                    <div class="flex-grow-1">{{ $item->detail }}</div>
-                                </li>
-                                <li class="d-flex">
-                                    <i class="fas fa-square"></i>
-                                    <div class="flex-grow-1"> ราคา <strong
-                                            class="text-success">{{ $item->price }}</strong>
+                                    <div class="flex-grow-1">
+                                        <p>{{ $item->detail }}</p>
                                     </div>
                                 </li>
                                 <li class="d-flex">
                                     <i class="fas fa-square"></i>
-                                    <div class="flex-grow-1"> ราคา <strong
-                                            class="text-success">{{ $item->name }}</strong>
+                                    <div class="flex-grow-1">
+                                        <p>ราคา <span class="text-success">{{ $item->price }}</span></p>
                                     </div>
                                 </li>
+                               
                             </ul>
                             <a class="btn-solid-reg" href="{{ route('room.detail', $item->id) }}">รายละเอียด</a>
                         </div> <!-- end of text-container -->
@@ -181,6 +178,5 @@
         </div> <!-- end of container -->
     </div> <!-- end of form-1 -->
     <!-- end of contact -->
-@include('sweetalert::alert')
-
+    @include('sweetalert::alert')
 @endsection
