@@ -18,11 +18,65 @@ class AdminController extends Controller
 
         return view('dashboards.admins.index');
     }
+
+
+
+
     function profile()
     {
         return view('dashboards.admins.profile');
     }
-    
+
+
+    function profileUpdate(Request $request, $id)
+    {
+
+
+
+        $request->validate(
+            [
+                'name' => 'required|string|max:255',
+                'tel' => 'required',
+                'password' => 'nullable|string|min:8',
+
+            ],
+            [
+                'name.required' => "กรุณาป้อนชื่อ",
+                'name.string' => "กรุณาป้อนให้ถูกต้อง",
+                'name.max' => "ห้ามป้อนเกิน 255 ตัวอักษร",
+                'password.min' => "กรุณาป้อนรหัสผ่าน มากกว่า 8 ตัว",
+
+
+
+                'tel.required' => "กรุณาป้อนเบอร์ติดต่อ",
+
+
+
+
+
+            ],
+
+        );
+
+
+
+        // dd($request->all());
+        User::find($id)->update([
+            'name' => $request->name,
+
+            'tel' => $request->tel,
+
+            'password' => Hash::make($request->password),
+
+
+        ]);
+
+        return redirect()->route('admin.profile')->with('success', "อัพเดทข้อมูลสำเร็จ");
+    }
+
+
+
+
 
 
 
@@ -129,8 +183,8 @@ class AdminController extends Controller
 
 
 
-    
-   
+
+
     function new()
     {
         return view('dashboards.admins.news.index');

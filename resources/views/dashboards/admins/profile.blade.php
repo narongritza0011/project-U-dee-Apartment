@@ -32,6 +32,7 @@
                             <div class="card-body">
                                 <form class="form form-horizontal" method="post"
                                     action="{{ route('profile.update', Auth::user()->id) }}">
+                                    @csrf
                                     <div class="form-body">
                                         <div class="row">
 
@@ -41,27 +42,45 @@
 
                                             <div class="col-md-8 form-group">
                                                 <input type="text" value="{{ Auth::user()->name }}" id="first-name"
-                                                    class="form-control" name="name" placeholder="First Name">
+                                                    class="form-control" name="name">
+                                                @error('name')
+                                                    <div class="my-2">
+                                                        <span class="text-danger">{{ $message }}</span>
+                                                    </div>
+                                                @enderror
                                             </div>
+
                                             <div class="col-md-4">
                                                 <label>อีเมล์</label>
                                             </div>
                                             <div class="col-md-8 form-group">
                                                 <input type="email" id="email-id" value="{{ Auth::user()->email }}"
-                                                    class="form-control" name="email" readonly placeholder="Email">
+                                                    class="form-control" readonly>
                                             </div>
+
                                             <div class="col-md-4">
                                                 <label>เบอร์ติดต่อ</label>
                                             </div>
                                             <div class="col-md-8 form-group">
                                                 <input type="number" id="contact-info" value="{{ Auth::user()->tel }}"
-                                                    class="form-control" name="tel" placeholder="Mobile">
+                                                    class="form-control" name="tel">
+                                                @error('tel')
+                                                    <div class="my-2">
+                                                        <span class="text-danger">{{ $message }}</span>
+                                                    </div>
+                                                @enderror
                                             </div>
+
                                             <div class="col-md-4">
                                                 <label>รหัสผ่าน</label>
                                             </div>
                                             <div class="col-md-8 form-group">
                                                 <input type="text" class="form-control" name="password">
+                                                @error('password')
+                                                    <div class="my-2">
+                                                        <span class="text-danger">{{ $message }}</span>
+                                                    </div>
+                                                @enderror
                                             </div>
 
 
@@ -82,4 +101,5 @@
         <!-- // Basic Horizontal form layout section end -->
 
     </div>
+    @include('sweetalert::alert')
 @endsection

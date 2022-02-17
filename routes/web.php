@@ -54,10 +54,12 @@ Route::group(['prefix' => 'admin', 'middleware' => ['isAdmin', 'auth', 'PreventB
     Route::post('location/update/{id}', [ContactController::class, 'update'])->name('location.update');
 
 
+
+
     // ข้อมูลของฉัน
     Route::get('profile', [AdminController::class, 'profile'])->name('admin.profile');
-    Route::get('profile', [AdminController::class, 'profile'])->name('admin.profile');
-    Route::post('profile/update/{id}', [AdminController::class, 'update'])->name('profile.update');
+
+    Route::post('profile/update/{id}', [AdminController::class, 'profileUpdate'])->name('profile.update');
 
 
 
