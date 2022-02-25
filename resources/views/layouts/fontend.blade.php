@@ -42,6 +42,7 @@
     <link rel="icon" href="images/favicon.png">
 
     <link rel="icon" href="{{ asset('fontend-assets/images/favicon.png') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/css/copyright.css') }}">
 
 </head>
 

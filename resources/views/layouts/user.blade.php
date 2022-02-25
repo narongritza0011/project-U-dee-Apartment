@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="{{ asset('datepicker/css/bootstrap-datepicker.css') }}" />
 
 
+    <link rel="stylesheet" href="{{ asset('assets/css/copyright.css') }}">
 
 
     <link rel="stylesheet" href="{{ asset('assets/vendors/perfect-scrollbar/perfect-scrollbar.css') }}">
