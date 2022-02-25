@@ -125,14 +125,13 @@
                                                 </div>
 
                                                 @if ($check > 0)
-                                                    <a class="btn btn-outline-danger disabled"><i
-                                                            class="bi bi-door-closed-fill"></i>ค้างชำระ</a>
+                                                    <div class="text-danger mt-5">
+                                                        มีการค่างชำระไม่สามารถบันทึกย้ายออกได้
+                                                    </div>
+                                                    <a class="btn btn-outline-success disabled ">บันทึก</a>
                                                 @else
-                                                    
-                                                        <button type="submit"
-                                                            class="btn btn-success me-1 mb-1 mt-5">บันทึก</button>
-
-                                                   
+                                                    <button type="submit"
+                                                        class="btn btn-outline-success me-1 mb-1 mt-5">บันทึก</button>
                                                 @endif
 
 

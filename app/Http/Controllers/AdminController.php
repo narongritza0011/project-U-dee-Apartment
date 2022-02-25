@@ -50,11 +50,18 @@ class AdminController extends Controller
         $year = Carbon::now()->format('Y');
 
         // dd($year);
+
         $table_bill = Bill::where('room_number', $r_num)->get();
-        //  dd($table_bill);
+
+
+        // $bill_month = array_pluck($table_bill,'bill');
+        $bill_month = $table_bill->pluck('bill')->toArray();
+        // dd($bill_month);
+
+
         $widget = Bill::where('room_number', $r_num)->latest('id')->get(['electric_now_meter', 'water_now_meter'])->first();
         // dd($widget);
-        return view('dashboards.admins.bills.bill', compact('room', 'water_electric', 'widget', 'year', 'table_bill'));
+        return view('dashboards.admins.bills.bill', compact('room', 'water_electric', 'widget', 'year', 'table_bill','bill_month'));
     }
 
 
@@ -334,7 +341,7 @@ class AdminController extends Controller
 
 
 
-         Pay::find($id)->delete();
+        Pay::find($id)->delete();
         return redirect()->back()->with('success', "ลบข้อมูลเรียบร้อย");
     }
 

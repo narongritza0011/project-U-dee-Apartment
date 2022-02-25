@@ -70,36 +70,60 @@
                                                 <select class="form-select" name="bill"
                                                     aria-label="Default select example">
                                                     <option selected disabled>เลือกรอบบิล</option>
-                                                    <option value="มกราคม {{ $year }}">มกราคม {{ $year }}
+                                                    <option value="มกราคม {{ $year }}"
+                                                        {{ in_array('กุมภาพันธ์ ' . $year, $bill_month) ? 'disabled' : '' }}>
+                                                        มกราคม {{ $year }}
                                                     </option>
-                                                    <option value="กุมภาพันธ์ {{ $year }}">กุมภาพันธ์
+                                                    <option value="กุมภาพันธ์ {{ $year }}"
+                                                        {{ in_array('กุมภาพันธ์ ' . $year, $bill_month) ? 'disabled' : '' }}>
+                                                        กุมภาพันธ์
                                                         {{ $year }}
                                                     </option>
-                                                    <option value="มีนาคม {{ $year }}">มีนาคม {{ $year }}
+                                                    <option value="มีนาคม {{ $year }} "
+                                                        {{ in_array('มีนาคม ' . $year, $bill_month) ? 'disabled' : '' }}>
+                                                        มีนาคม {{ $year }}
                                                     </option>
-                                                    <option value="เมษายน {{ $year }}">เมษายน {{ $year }}
+                                                    <option value="เมษายน {{ $year }} "
+                                                        {{ in_array('เมษายน ' . $year, $bill_month) ? 'disabled' : '' }}>
+                                                        เมษายน {{ $year }}
                                                     </option>
-                                                    <option value="พฤษภาคม {{ $year }}">พฤษภาคม
+                                                    <option value="พฤษภาคม {{ $year }} "
+                                                        {{ in_array('พฤษภาคม ' . $year, $bill_month) ? 'disabled' : '' }}>
+                                                        พฤษภาคม
                                                         {{ $year }}
                                                     </option>
-                                                    <option value="มิถุนายน {{ $year }}">มิถุนายน
+                                                    <option value="มิถุนายน {{ $year }} "
+                                                        {{ in_array('มิถุนายน ' . $year, $bill_month) ? 'disabled' : '' }}>
+                                                        มิถุนายน
                                                         {{ $year }}
                                                     </option>
-                                                    <option value="กรกฎาคม {{ $year }}">กรกฎาคม
+                                                    <option value="กรกฎาคม {{ $year }} "
+                                                        {{ in_array('กรกฎาคม ' . $year, $bill_month) ? 'disabled' : '' }}>
+                                                        กรกฎาคม
                                                         {{ $year }}
                                                     </option>
-                                                    <option value="สิงหาคม {{ $year }}">สิงหาคม
+                                                    <option value="สิงหาคม {{ $year }} "
+                                                        {{ in_array('สิงหาคม ' . $year, $bill_month) ? 'disabled' : '' }}>
+                                                        สิงหาคม
                                                         {{ $year }}
                                                     </option>
-                                                    <option value="กันยายน {{ $year }}">กันยายน
+                                                    <option value="กันยายน {{ $year }} "
+                                                        {{ in_array('กันยายน ' . $year, $bill_month) ? 'disabled' : '' }}>
+                                                        กันยายน
                                                         {{ $year }}
                                                     </option>
-                                                    <option value="ตุลาคม {{ $year }}">ตุลาคม {{ $year }}
+                                                    <option value="ตุลาคม {{ $year }}"
+                                                        {{ in_array('ตุลาคม ' . $year, $bill_month) ? 'disabled' : '' }}>
+                                                        ตุลาคม {{ $year }}
                                                     </option>
-                                                    <option value="พฤศจิกายน {{ $year }}">พฤศจิกายน
+                                                    <option value="พฤศจิกายน {{ $year }} "
+                                                        {{ in_array('พฤศจิกายน ' . $year, $bill_month) ? 'disabled' : '' }}>
+                                                        พฤศจิกายน
                                                         {{ $year }}
                                                     </option>
-                                                    <option value="ธันวาคม {{ $year }}">ธันวาคม
+                                                    <option value="ธันวาคม {{ $year }}"
+                                                        {{ in_array('ธันวาคม ' . $year, $bill_month) ? 'disabled' : '' }}>
+                                                        ธันวาคม
                                                         {{ $year }}
                                                     </option>
                                                 </select>
