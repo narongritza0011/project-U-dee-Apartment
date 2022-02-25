@@ -1,11 +1,5 @@
 @extends('layouts.backend')
 @section('content')
-
-
-
-
-
-
     <div class="page-heading">
         <div class="page-title">
             <div class="row">
@@ -48,8 +42,9 @@
                                             <thead>
                                                 <tr>
                                                     <th>ลำดับ</th>
-                                                    <th>ค่าน้ำ</th>
                                                     <th>ค่าไฟ</th>
+                                                    <th>ค่าน้ำ</th>
+                                                 
                                                     <th>สร้างเมื่อ</th>
                                                     <th>จัดการ</th>
 
@@ -69,8 +64,8 @@
                                                                 class="btn btn-outline-warning "><i
                                                                     class="bi bi-pencil-square"></i></a>
                                                             <a href="{{ route('elect_water.delete', $row->id) }}"
-                                                                class="btn btn-outline-danger "><i
-                                                                    class="bi bi-trash"></i></a>
+                                                                class="btn btn-outline-secondary disabled"><i
+                                                                    class="bi bi-trash "></i></a>
                                                         </td>
 
                                                     </tr>
@@ -153,7 +148,7 @@
 
 
                                         <div class="col-12 d-flex justify-content-end">
-                                            <button type="submit" class="btn btn-success me-1 mb-1">เพิ่ม</button>
+                                            <button disabled type="submit" class="btn btn-success me-1 mb-1">เพิ่ม</button>
 
                                         </div>
                                     </div>
@@ -168,8 +163,4 @@
     <!-- // Basic Horizontal form layout section end -->
 
     @include('sweetalert::alert')
-
-
-
-
 @endsection

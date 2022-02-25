@@ -3,8 +3,17 @@
     <div class="page-heading">
         <div class="page-title">
             <div class="row">
-                <h3>จัดการข้อมูลผู้เข้าพักที่อาศัยอยู่
+                <h3>รายการรอชำระเงิน
                 </h3>
+
+
+
+
+
+
+
+
+
                 <div class="col-12 col-md-6 order-md-1 order-last">
 
                 </div>
@@ -12,7 +21,8 @@
                     <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="index.html">ตาราง</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">ข้อมูลผู้เข้าพัก</li>
+                            <li class="breadcrumb-item active" aria-current="page">รอชำระเงิน
+                            </li>
                         </ol>
                     </nav>
                 </div>
@@ -26,7 +36,8 @@
                     <div class="card">
                         <div class="card-header">
 
-                            ตารางข้อมูลผู้เข้าพัก
+                            ตารางรอชำระเงิน
+
 
                         </div>
                         <div class="card-content">
@@ -39,38 +50,44 @@
                                             <table class="table table-striped" id="table1">
                                                 <thead>
                                                     <tr>
-                                                        <th>ลำดับ</th>
-                                                        <th>เลขห้อง</th>
-                                                        <th>เลขบัตรประชาชน</th>
-                                                        <th>ชื่อ-นามสกุล</th>
-                                                        <th>เบอร์ติดต่อ</th>
 
+                                                        <th>เลขบิล</th>
+                                                        <th>ห้อง</th>
+                                                        <th>ผู้เช่า</th>
+                                                        <th>รอบบิล</th>
+                                                        <th>ค่าเช่า</th>
+                                                        <th>ค่าน้ำ</th>
+                                                        <th>ค่าไฟ</th>
+                                                        <th>รวม</th>
                                                         <th>จัดการ</th>
 
                                                     </tr>
                                                 </thead>
                                                 <tbody>
 
-
-                                                    @foreach ($roomers as $item)
+                                                    @foreach ($bills as $item)
                                                         <tr>
-                                                            <td>{{ $loop->iteration }}</td>
-
+                                                            <td>{{ $item->id }}</td>
                                                             <td>{{ $item->room_number }}</td>
-                                                            <td>{{ $item->card_number }}</td>
+
                                                             <td>{{ $item->full_name }}</td>
-                                                            <td>{{ $item->tel }}</td>
+                                                            <td>{{ $item->bill }}</td>
+                                                            <td>{{ $item->rental_fee }}</td>
+                                                            <td>{{ $item->water_sum }}</td>
+                                                            <td>{{ $item->electric_sum }}</td>
+                                                            <td>{{ $item->total }}</td>
 
+                                                            <td>
+                                                                <a href="{{ route('admin.cash.pay', $item->id) }}"
+                                                                    class="btn btn-outline-primary">ชำระเงิน</a>
+                                                                <a href="{{ route('bill.delete', $item->id) }}"
+                                                                    class="btn btn-outline-danger"><i
+                                                                        class="bi bi-trash-fill"></i></a>
 
-                                                          
-
-
-                                                            <td><a href="{{ route('living.edit', $item->id) }}"
-                                                                    class="btn btn-outline-primary"><i
-                                                                        class="bi bi-door-closed-fill"></i>ย้ายออก</a></td>
-
+                                                            </td>
                                                         </tr>
                                                     @endforeach
+
 
                                                 </tbody>
                                             </table>
@@ -86,10 +103,6 @@
 
 
                                 </section>
-
-
-
-
 
                             </div>
                         </div>

@@ -42,7 +42,33 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 
 Route::group(['prefix' => 'admin', 'middleware' => ['isAdmin', 'auth', 'PreventBackHistory']], function () {
+
+    //หน้าออกบิล หน้าหลัก
     Route::get('dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
+    Route::get('dashboard/bill/{id}', [AdminController::class, 'bill'])->name('admin.dashboard.bill');
+    Route::post('dashboard/bill/add', [AdminController::class, 'addBill'])->name('bill.add');
+    Route::get('dashboard/bill/print/{id}', [AdminController::class, 'print'])->name('bill.print');
+    Route::get('bill/delete/{id}', [AdminController::class, 'delete'])->name('bill.delete');
+    Route::get('dashboard/bill/edit/{id}', [AdminController::class, 'edit'])->name('bill.edit');
+    Route::post('dashboard/bill/update/{id}', [AdminController::class, 'update'])->name('bill.update');
+
+
+
+    //หน้ารายการชำระเงิน
+    Route::get('no_cash', [AdminController::class, 'wallet'])->name('admin.cash');
+    Route::get('no_cash/pay/{id}', [AdminController::class, 'pay'])->name('admin.cash.pay');
+    Route::post('no_cash/pay/add', [AdminController::class, 'addPay'])->name('pay.add');
+
+    Route::get('cash_success', [AdminController::class, 'wallet_success'])->name('admin.cash_success');
+    Route::get('cash_success/view/{id}', [AdminController::class, 'view_success'])->name('admin.view_success');
+
+
+
+    
+
+
+
+
     Route::get('slide', [AdminController::class, 'slide'])->name('admin.slide');
     Route::get('settings', [AdminController::class, 'settings'])->name('admin.settings');
 
@@ -164,7 +190,16 @@ Route::group(['prefix' => 'admin', 'middleware' => ['isAdmin', 'auth', 'PreventB
 
 
 Route::group(['prefix' => 'user', 'middleware' => ['isUser', 'auth', 'PreventBackHistory']], function () {
-    Route::get('dashboard', [UserController::class, 'index'])->name('user.dashboard');
+
+
+
+
+    // Route::get('dashboard', [UserController::class, 'index'])->name('user.dashboard');
+    // ข้อมูลของฉัน
+
     Route::get('profile', [UserController::class, 'profile'])->name('user.profile');
-    Route::get('settings', [UserController::class, 'settings'])->name('user.settings');
+    Route::post('profile/update/{id}', [UserController::class, 'update'])->name('user.update');
+
+
+    Route::get('bills', [UserController::class, 'bills'])->name('user.bills');
 });

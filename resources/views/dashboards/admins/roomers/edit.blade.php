@@ -149,9 +149,7 @@
                                                                     <option value="2"
                                                                         {{ $data->status == '2' ? 'selected' : '' }}>
                                                                         ย้ายออกเเล้ว</option>
-                                                                    <option value="3"
-                                                                        {{ $data->status == '3' ? 'selected' : '' }}>
-                                                                        รอย้ายออก</option>
+                                                                   
 
 
 

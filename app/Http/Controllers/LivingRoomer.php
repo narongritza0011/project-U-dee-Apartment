@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Room;
 use App\Models\Roomer;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class LivingRoomer extends Controller
 {
@@ -13,10 +14,16 @@ class LivingRoomer extends Controller
         // $roomers = Roomer::leftJoin('rooms', 'rooms.id', '=', 'roomers.room_number')
         //     ->get(['rooms.room_number', 'roomers.full_name', 'roomers.id', 'roomers.card_number', 'roomers.tel']);
         // dd($roomers);
-
-        // $data = Room::all();
         $roomers = Roomer::join('rooms', 'rooms.id', '=', 'roomers.room_number')->where('roomers.status', 1)->get(['rooms.room_number', 'roomers.full_name', 'roomers.id', 'roomers.card_number', 'roomers.tel']);
-        // $roomers = Roomer::all();
+
+
+
+
+
+
+        // select count(*) from roomers join bills on bills.room_number = roomers.room_number where bills.status = 1 and roomers.id = 6
+
+
         return view('dashboards.admins.livings.index', compact('roomers'));
     }
 
@@ -26,14 +33,19 @@ class LivingRoomer extends Controller
     {
 
 
-        // $room = Roomer::leftJoin('rooms', 'rooms.id', '=', 'roomers.room_number')
-        //     ->get(['rooms.room_number']);
-        // dd($data);
+        $data = Roomer::join('rooms', 'rooms.id', '=', 'roomers.room_number')->get(['rooms.room_number', 'roomers.full_name', 'roomers.id', 'roomers.card_number', 'roomers.tel', 'roomers.contact_other'])->find($id);
+        $roomer_id = $data['id'];
 
-        $room = Room::all();
+        $check = Roomer::join('bills', 'bills.room_number', '=', 'roomers.room_number')->where('bills.status', 1)->where('roomers.id', $roomer_id)->count();
+        // dd($check);
+        //  $room_n = Roomer::leftJoin('rooms', 'rooms.id', '=', 'roomers.room_number')
+        //      ->get(['rooms.room_number','roomers.id'])->find($id);
+        //  dd($room_n);
 
-        $data = Roomer::find($id);
-        return view('dashboards.admins.livings.edit', compact('data', 'room'));
+        // $room = Room::all();
+
+        // $data = Roomer::find($id);
+        return view('dashboards.admins.livings.edit', compact('data', 'check'));
     }
 
 
@@ -55,12 +67,30 @@ class LivingRoomer extends Controller
         );
 
 
-        Roomer::find($id)->update([
-            'end_date' => $request->end_date,
-            'status' => 2,
-            
+        $data =  Roomer::find($id);
+        $data->end_date = $request->end_date;
+        $data->status = 2;
 
-        ]);
-        return redirect()->route('living.all')->with('success', "อัพเดทข้อมูลสำเร็จ");
+
+
+
+
+
+        // $bill =  Room::find($request->room_number);
+        // dd($request->room_number);
+
+        // dd($bill->status);
+
+
+
+        if ($data->update()) {
+
+            Room::where('room_number', $request->room_number)->update(['status' => 1]);
+
+
+            return redirect()->route('living.all')->with('success', 'อัพเดทข้อมูลสำเร็จ');
+        }
+
+        return redirect()->back()->with('error', 'อัพเดทข้อมูลไม่สำเร็จ');
     }
 }

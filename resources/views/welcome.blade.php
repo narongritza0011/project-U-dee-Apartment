@@ -83,9 +83,10 @@
                                     <i class="fas fa-square"></i>
                                     <div class="flex-grow-1">
                                         <p>ราคา <span class="text-success">{{ $item->price }}</span></p>
+
                                     </div>
                                 </li>
-                               
+
                             </ul>
                             <a class="btn-solid-reg" href="{{ route('room.detail', $item->id) }}">รายละเอียด</a>
                         </div> <!-- end of text-container -->

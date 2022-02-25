@@ -52,7 +52,7 @@
         <div class="container">
 
             <!-- Image Logo -->
-            <a class="navbar-brand logo-image" href="index.html"><img
+            <a class="navbar-brand logo-image" href="/"><img
                     src="{{ asset('fontend-assets/images/logo.svg ') }}"" alt=" alternative"></a>
 
             <!-- Text Logo - Use this if you don't have a graphic logo -->
@@ -126,6 +126,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="footer-col first third">
+
                         @foreach ($contacts as $contact)
                             <h6>เกี่ยวกับ</h6>
                             <p class="p-small">{{ $contact->about }}</p>
@@ -165,7 +166,8 @@
 
 
                     </div> <!-- end of footer-col -->
-                    @endforeach
+                    @endforeach;
+
                 </div> <!-- end of col -->
             </div> <!-- end of row -->
         </div> <!-- end of container -->
@@ -184,7 +186,8 @@
 
             <div class="row">
                 <div class="col-lg-12">
-                    <p class="p-small">Distributed By <a href="https://themewagon.com/">Udee-apartment</a></p>
+                    <p class="p-small">Distributed By <a href="https://themewagon.com/">Udee-apartment</a>
+                    </p>
                 </div> <!-- end of col -->
             </div> <!-- enf of row -->
         </div> <!-- end of container -->

@@ -5,19 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Roomer extends Model
+class Pay extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'room_number',
-        'card_number',
-        'full_name',
-        'tel',
-        'contact_other',
-        'status',
-        'start_date',
-        'end_date',
-    ];
 
-   
+        'bill_id',
+        'payment',
+        'status',
+        'total',
+    ];
 }

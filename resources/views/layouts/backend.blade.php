@@ -19,7 +19,7 @@
 
     <link rel="stylesheet" href="{{ asset('datepicker/css/bootstrap-datepicker.css') }}" />
 
-
+    <link rel="stylesheet" href="{{ asset('assets/vendors/iconly/bold.css') }}">
 
 
     <link rel="stylesheet" href="{{ asset('assets/vendors/perfect-scrollbar/perfect-scrollbar.css') }}">
@@ -38,7 +38,7 @@
 
                     <div class="d-flex justify-content-between">
                         <div class="logo">
-                            <a href="index.html"><img src="{{ asset('assets/images/logo/logo.png') }}" alt="Logo"
+                            <a href="/"><img src="{{ asset('assets/images/logo/logo.png') }}" alt="Logo"
                                     srcset=""></a>
                         </div>
 
@@ -58,6 +58,23 @@
                                 <i class="bi bi-grid-fill"></i>
                                 <span>หน้าหลัก</span>
                             </a>
+                        </li>
+                        <li class="sidebar-item  {{ request()->is('admin/no_cash*') ? 'active' : '' }}">
+                            <a href="{{ route('admin.cash') }}" class='sidebar-link'>
+                                <i class="bi bi-wallet2"></i>
+                                <span>รอชำระเงิน</span>
+                                <span class="badge bg-danger">{{ count_cash_no() }}</span>
+                            </a>
+
+                        </li>
+
+                        <li class="sidebar-item  {{ request()->is('admin/cash_success*') ? 'active' : '' }}">
+                            <a href="{{ route('admin.cash_success') }}" class='sidebar-link'>
+                                <i class="bi bi-wallet2"></i>
+                                <span>ชำระเงินเเล้ว</span>
+                                <span class="badge bg-success">{{ count_cash_success() }}</span>
+                            </a>
+
                         </li>
 
                         <li class="sidebar-item  {{ request()->is('admin/admin*') ? 'active' : '' }}">
@@ -106,6 +123,7 @@
                             <a href="{{ route('living.all') }}" class='sidebar-link'>
                                 <i class="bi bi-people-fill"></i>
                                 <span>กำลังอาศัยอยู่</span>
+                                <span class="badge bg-success">{{ count_livings() }}</span>
                             </a>
                         </li>
 
@@ -114,6 +132,8 @@
                                 <i class="bi bi-people-fill"></i>
                                 <span>ย้ายออกเเล้ว
                                 </span>
+                                <span class="badge bg-warning">{{ count_out_livings() }}</span>
+
                             </a>
                         </li>
                         {{-- <li class="sidebar-item  {{ request()->is('admin/slide*') ? 'active' : '' }}">
@@ -210,10 +230,10 @@
     <script src="{{ asset('assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js') }}"></script>
     <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
 
-    {{-- <script src="{{ asset('assets/vendors/apexcharts/apexcharts.js') }}"></script> --}}
+    <script src="{{ asset('assets/vendors/apexcharts/apexcharts.js') }}"></script>
 
 
-    {{-- <script src="{{ asset('assets/js/pages/dashboard.js') }}"></script> --}}
+    <script src="{{ asset('assets/js/pages/dashboard.js') }}"></script>
 
 
     <script src="{{ asset('assets/vendors/simple-datatables/simple-datatables.js') }}"></script>

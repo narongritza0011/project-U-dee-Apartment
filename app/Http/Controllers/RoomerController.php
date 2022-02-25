@@ -15,10 +15,11 @@ class RoomerController extends Controller
     {
         $roomers = Roomer::leftJoin('rooms', 'rooms.id', '=', 'roomers.room_number')
             ->get(['rooms.room_number', 'roomers.full_name', 'roomers.id', 'roomers.card_number', 'roomers.tel']);
-        // dd($roomers);
+        //  dd($roomers);
 
+        
 
-        $data = Room::all();
+        $data = Room::where('status',1)->get();
         // $roomers = Roomer::where('status', 1)->get();
         // $roomers = Roomer::all();
         return view('dashboards.admins.roomers.index', compact('data', 'roomers'));
@@ -69,8 +70,17 @@ class RoomerController extends Controller
         $data->created_at = Carbon::now();
 
 
+
+        $room =  Room::find($request->room_number);
+        $room->status = 2;
+
+
+
         if ($data->save()) {
-            // return redirect()->back()->with('success', 'เพิ่มข้อมูลผู้ดูเเลระบบเรียบร้อยเเล้ว');
+
+            $room->update();
+
+            
             return redirect()->back()->with('success', 'เพิ่มข้อมูลสำเร็จ');
         } else {
             Alert::error('เพิ่มข้อมูลไม่สำเร็จ');

@@ -141,9 +141,9 @@
                                     <td>{{ $data->email }}</td>
                                     <td>{{ $data->tel }}</td>
                                     <td><a href="#" admin-route="{{ route('admin.edit', $data->id) }}"
-                                            class="btn btn-warning edit-btn"><i class="bi bi-pencil-square"></i></a>
+                                            class="btn btn-outline-warning edit-btn"><i class="bi bi-pencil-square"></i></a>
                                         <a href="{{ route('admin.delete', $data->id) }}"
-                                            class="btn btn-danger delete-btn"><i class="bi bi-trash"></i></a>
+                                            class="btn btn-outline-danger delete-btn"><i class="bi bi-trash"></i></a>
                                     </td>
 
 

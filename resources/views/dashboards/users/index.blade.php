@@ -1,27 +1,105 @@
-@extends('layouts.app')
+@extends('layouts.user')
 
 @section('content')
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">{{ __('Dashboard') }}</div>
-                    <h4>สวัสดี คุณ {{ Auth::user()->name }} ผู้ใช้งานทั่วไป </h4>
-                    <h4>เบอร์ {{ Auth::user()->tel }}  </h4>
+    <div class="page-heading">
+        <div class="page-title">
+            <div class="row">
+                <h3>บัญชีของฉัน</h3>
+                <div class="col-12 col-md-6 order-md-1 order-last">
 
-                    <hr>
-                    DASHBOARD
-                    <div class="card-body">
-                        @if (session('status'))
-                            <div class="alert alert-success" role="alert">
-                                {{ session('status') }}
-                            </div>
-                        @endif
 
-                        {{ __('You are logged in!') }}
-                    </div>
+                </div>
+                <div class="col-12 col-md-6 order-md-2 order-first">
+                    <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="index.html">บัญชีของฉัน</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">ข้อมูลส่วนตัว</li>
+                        </ol>
+                    </nav>
                 </div>
             </div>
         </div>
+
+        <!-- Basic Horizontal form layout section start -->
+        <section id="basic-horizontal-layouts">
+            <div class="row match-height">
+                <div class="col-md-12 col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">ข้อมูลส่วนตัว</h4>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-body">
+                                <form class="form form-horizontal" method="post"
+                                    action="{{ route('profile.update', Auth::user()->id) }}">
+                                    @csrf
+                                    <div class="form-body">
+                                        <div class="row">
+
+                                            <div class="col-md-4">
+                                                <label>ชื่อ-นามสกุล</label>
+                                            </div>
+
+                                            <div class="col-md-8 form-group">
+                                                <input type="text" value="{{ Auth::user()->name }}" id="first-name"
+                                                    class="form-control" name="name">
+                                                @error('name')
+                                                    <div class="my-2">
+                                                        <span class="text-danger">{{ $message }}</span>
+                                                    </div>
+                                                @enderror
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <label>อีเมล์</label>
+                                            </div>
+                                            <div class="col-md-8 form-group">
+                                                <input type="email" id="email-id" value="{{ Auth::user()->email }}"
+                                                    class="form-control" readonly>
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <label>เบอร์ติดต่อ</label>
+                                            </div>
+                                            <div class="col-md-8 form-group">
+                                                <input type="number" id="contact-info" value="{{ Auth::user()->tel }}"
+                                                    class="form-control" name="tel">
+                                                @error('tel')
+                                                    <div class="my-2">
+                                                        <span class="text-danger">{{ $message }}</span>
+                                                    </div>
+                                                @enderror
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <label>รหัสผ่าน</label>
+                                            </div>
+                                            <div class="col-md-8 form-group">
+                                                <input type="text" class="form-control" name="password">
+                                                @error('password')
+                                                    <div class="my-2">
+                                                        <span class="text-danger">{{ $message }}</span>
+                                                    </div>
+                                                @enderror
+                                            </div>
+
+
+                                            <div class="col-sm-12 d-flex justify-content-end">
+                                                <button type="submit" class="btn btn-primary me-1 mb-1">บันทึก</button>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <!-- // Basic Horizontal form layout section end -->
+
     </div>
+    @include('sweetalert::alert')
 @endsection

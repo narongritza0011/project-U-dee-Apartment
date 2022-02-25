@@ -68,41 +68,60 @@
 </head>
 
 <body>
-    <h2 style="text-align: center;">บิลเก็บค่ามัดจำ, ล่วงหน้า</h2>
+    <h2 style="text-align: center;">บิลเก็บค่าเช่า</h2>
 
     <h5 style="text-align: center;">หอพัก อยู่ดีมีสุข</h5>
     <p>
-        ห้อง {{ $data->room_number }} วันที่พิมพ์ {{ $time }} ผู้เช่า
-        {{ $data->full_name }} โทร {{ $data->tel }}
-        วันที่เข้าพัก {{ $data->start_date }}
+        ห้อง {{$data->room_number}} เดือน {{$data->bill}} วันที่ออกบิล {{$time}}
+        ผู้เช่า {{$data->full_name}}  โทร {{$data->tel}}
+       
+        
     </p>
     <div style="overflow-x: auto;">
         <table style="width: 100%;">
             <tr>
                 <th>#</th>
-                <th>รายการ</th>
+                <th>มิเตอร์ครั้งนี้</th>
+                <th>มิเตอร์ครั้งก่อน</th>
+                <th>หน่วย</th>
                 <th>หน่วยละ</th>
-                <th>จำนวน</th>
                 <th>รวม</th>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>ค่ามัดจำ</td>
-                <td>{{ $data->price }}</td>
-                <td>1</td>
-                <td>{{ $data->price }}</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>ล่วงหน้า</td>
-                <td>{{ $data->pay_first }}</td>
-                <td>1</td>
-                <td>{{ $data->pay_first }}</td>
-            </tr>
-            <tr>
-                <td colspan="4">รวมเป็นเงิน</td>
 
-                <td>{{ $result }}</td>
+            </tr>
+            <tr>
+
+                <td>ค่าน้ำ</td>
+                <td>{{$data->water_now_meter}}</td>
+                <td>{{$data->water_old_meter}}</td>
+                <td>{{$data->water_unit}}</td>
+                <td>{{$data->water}}</td>
+                <td>{{$data->water_sum}}</td>
+
+            </tr>
+            <tr>
+
+                <td>ค่าไฟ</td>
+                <td>{{$data->electric_now_meter}}</td>
+                <td>{{$data->electric_old_meter}}</td>
+                <td>{{$data->electric_unit}}</td>
+
+                
+                <td>{{$data->electric}}</td>
+                <td>{{$data->electric_sum}}</td>
+
+            </tr>
+            <tr>
+
+                <td colspan="5">ค่าห้อง</td>
+
+                <td>{{$data->rental_fee}}</td>
+
+            </tr>
+            <tr>
+                <td colspan="5">รวมเป็นเงิน</td>
+
+
+                <td>{{$data->total}}</td>
             </tr>
             <tr style="height: 150;">
                 <td colspan="3" style="text-align: center;">
@@ -110,10 +129,10 @@
                     .......................... <br />
                     (นายเจ้าของ หอพัก)
                 </td>
-                <td colspan="2" style="text-align: center;">
+                <td colspan="3" style="text-align: center;">
                     ผู้จ่ายเงิน<br /><br />
                     .......................... <br />
-                    (คุณ {{ $data->full_name }})
+                    (คุณ {{$data->full_name}})
                 </td>
             </tr>
         </table>

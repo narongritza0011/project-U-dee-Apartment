@@ -1,11 +1,5 @@
 @extends('layouts.backend')
 @section('content')
-
-
-
-
-
-
     <div class="page-heading">
         <div class="page-title">
             <div class="row">
@@ -55,24 +49,13 @@
                                                     <label>เลขห้อง</label>
 
                                                     <div class="col-md-12">
-                                                        <div class="form-group has-icon-left">
+                                                        <div class="form-group ">
+                                                            <input type="text" class="form-control"
+                                                                value="{{ $data->room_number }}" name="room_number"
+                                                                readonly>
 
-                                                            <fieldset class="form-group">
-                                                                <select class="form-select" id="basicSelect"
-                                                                    name="room_number" disabled>
-                                                                    @foreach ($room as $rt)
-                                                                        <option value="{{ $rt->id }}"
-                                                                            {{ $data->room_number == $rt->id ? 'selected' : '' }}>
-                                                                            {{ $rt->room_number }}</option>
 
-                                                                    @endforeach
-                                                                </select>
-                                                                @error('room_number')
-                                                                    <div class="my-2">
-                                                                        <span class="text-danger">{{ $message }}</span>
-                                                                    </div>
-                                                                @enderror
-                                                            </fieldset>
+
 
 
                                                         </div>
@@ -85,12 +68,8 @@
                                                             class="form-label">กรอกเลขบัตรประชาชน</label>
                                                         <input type="text" class="form-control"
                                                             id="exampleFormControlInput1" value="{{ $data->card_number }}"
-                                                            name="card_number" disabled>
-                                                        @error('card_number')
-                                                            <div class="my-2">
-                                                                <span class="text-danger">{{ $message }}</span>
-                                                            </div>
-                                                        @enderror
+                                                            disabled>
+
                                                     </div>
                                                     <div class="mb-3 ">
                                                         <label for="exampleFormControlInput1"
@@ -98,12 +77,8 @@
                                                         </label>
                                                         <input type="text" class="form-control"
                                                             id="exampleFormControlInput1" value="{{ $data->full_name }}"
-                                                            name="full_name" disabled>
-                                                        @error('full_name')
-                                                            <div class="my-2">
-                                                                <span class="text-danger">{{ $message }}</span>
-                                                            </div>
-                                                        @enderror
+                                                            disabled>
+
                                                     </div>
                                                     <div class="mb-3 ">
                                                         <label for="exampleFormControlInput1"
@@ -111,12 +86,8 @@
                                                         </label>
                                                         <input type="number" class="form-control"
                                                             id="exampleFormControlInput1" value="{{ $data->tel }}"
-                                                            name="tel" disabled>
-                                                        @error('tel')
-                                                            <div class="my-2">
-                                                                <span class="text-danger">{{ $message }}</span>
-                                                            </div>
-                                                        @enderror
+                                                            disabled>
+
                                                     </div>
 
 
@@ -125,18 +96,13 @@
                                                             class="form-label">กรอกผู้ติดต่อกรณีฉุกเฉิน
                                                         </label>
                                                         <textarea class="form-control" id="exampleFormControlTextarea1"
-                                                            rows="3"
-                                                            name="contact_other" disabled>{{ $data->contact_other }}</textarea>
+                                                            rows="3" disabled>{{ $data->contact_other }}</textarea>
 
-                                                        @error('contact_other')
-                                                            <div class="my-2">
-                                                                <span class="text-danger">{{ $message }}</span>
-                                                            </div>
-                                                        @enderror
+
                                                     </div>
-                                                   
 
-                                                    
+
+
                                                     <div class="col-12">
                                                         <label>วันที่ย้ายออก</label>
                                                         <div class="input-group date" id="">
@@ -158,10 +124,18 @@
 
                                                 </div>
 
-                                                <div class="col-12 d-flex justify-content-end">
-                                                    <button type="submit" class="btn btn-success me-1 mb-1">บันทึก</button>
+                                                @if ($check > 0)
+                                                    <a class="btn btn-outline-danger disabled"><i
+                                                            class="bi bi-door-closed-fill"></i>ค้างชำระ</a>
+                                                @else
+                                                    
+                                                        <button type="submit"
+                                                            class="btn btn-success me-1 mb-1 mt-5">บันทึก</button>
 
-                                                </div>
+                                                   
+                                                @endif
+
+
                                         </div>
                                     </div>
                                     </form>
@@ -187,16 +161,10 @@
     <!-- // Basic Horizontal form layout section end -->
 
     @include('sweetalert::alert')
-
-
-
-
 @endsection
 @section('script')
-
     <script>
         @if ($errors->all())
-        
             $(window).on('load', function() {
             $('#modal-albums').modal('show');
             });
