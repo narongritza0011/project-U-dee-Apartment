@@ -12,7 +12,7 @@
                     <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="">ตาราง</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">ห้องพัก</li>
+                            <li class="breadcrumb-item active" aria-current="page">ค่าน้ำค่าไฟ</li>
                         </ol>
                     </nav>
                 </div>

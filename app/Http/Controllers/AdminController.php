@@ -316,6 +316,33 @@ class AdminController extends Controller
 
 
 
+
+
+
+    function payAll()
+    {
+        $bills = Pay::all();
+        // dd($bills);
+
+        return view('dashboards.admins.bills.payall', compact('bills'));
+    }
+
+
+
+    public function deletepay($id)
+    {
+
+
+
+         Pay::find($id)->delete();
+        return redirect()->back()->with('success', "ลบข้อมูลเรียบร้อย");
+    }
+
+
+
+
+
+
     function profile()
     {
         return view('dashboards.admins.profile');

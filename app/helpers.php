@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Bill;
+use App\Models\Pay;
 use App\Models\Roomer;
 
 function count_cash_no()
@@ -53,5 +54,22 @@ function count_out_livings()
 
     return $alert_count_out_livings;
 }
+
+
+
+
+function count_pays()
+{
+
+
+    $count_pays = Pay::all()->count();
+
+
+    
+
+
+    return $count_pays;
+}
+
 
 

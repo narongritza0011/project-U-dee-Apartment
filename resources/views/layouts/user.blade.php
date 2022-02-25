@@ -38,7 +38,7 @@
 
                     <div class="d-flex justify-content-between">
                         <div class="logo">
-                            <a href="index.html"><img src="{{ asset('assets/images/logo/logo.png') }}" alt="Logo"
+                            <a href="/"><img src="{{ asset('assets/images/logo/logo.png') }}" alt="Logo"
                                     srcset=""></a>
                         </div>
 
@@ -61,12 +61,12 @@
                                 <span>บัญชีของฉัน</span>
                             </a>
                         </li>
-                        <li class="sidebar-item  {{ request()->is('user/bills*') ? 'active' : '' }}">
+                        {{-- <li class="sidebar-item  {{ request()->is('user/bills*') ? 'active' : '' }}">
                             <a href="{{ route('user.bills') }}" class='sidebar-link'>
                                 <i class="bi bi-receipt"></i>
                                 <span>ค่าห้อง</span>
                             </a>
-                        </li>
+                        </li> --}}
 
                         <li class="sidebar-item ">
 

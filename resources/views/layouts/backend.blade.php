@@ -77,6 +77,15 @@
 
                         </li>
 
+                        <li class="sidebar-item  {{ request()->is('admin/pays*') ? 'active' : '' }}">
+                            <a href="{{ route('admin.pays') }}" class='sidebar-link'>
+                                <i class="bi bi-wallet"></i>
+                                <span>รายได้ทั้งหมด</span>
+                                <span class="badge bg-success">{{ count_pays() }}</span>
+                            </a>
+
+                        </li>
+
                         <li class="sidebar-item  {{ request()->is('admin/admin*') ? 'active' : '' }}">
                             <a href="{{ route('admin.admin') }}" class='sidebar-link'>
                                 <i class="bi bi-person-badge-fill"></i>

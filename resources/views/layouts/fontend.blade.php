@@ -86,7 +86,13 @@
                 @if (Route::has('login'))
                     <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
                         @auth
-                            <a href="{{ route('admin.dashboard') }}" class="btn-outline-sm">บัญชีของฉัน</a>
+
+
+                            @if (Auth::user()->role == 1)
+                                <a href="{{ route('admin.dashboard') }}" class="btn-outline-sm">บัญชีของฉัน</a>
+                            @elseif(Auth::user()->role == 2)
+                                <a href="{{ route('user.profile') }}" class="btn-outline-sm">บัญชีของฉัน</a>
+                            @endif
                         @else
                             <a href="{{ route('login') }}" class="btn-outline-sm">เข้าสู่ระบบ
                             </a>

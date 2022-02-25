@@ -62,9 +62,11 @@ Route::group(['prefix' => 'admin', 'middleware' => ['isAdmin', 'auth', 'PreventB
     Route::get('cash_success', [AdminController::class, 'wallet_success'])->name('admin.cash_success');
     Route::get('cash_success/view/{id}', [AdminController::class, 'view_success'])->name('admin.view_success');
 
+    Route::get('pays', [AdminController::class, 'payAll'])->name('admin.pays');
+    Route::get('pays/delete/{id}', [AdminController::class, 'deletepay'])->name('pays.delete');
 
 
-    
+
 
 
 

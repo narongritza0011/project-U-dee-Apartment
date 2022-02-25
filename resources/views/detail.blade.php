@@ -25,8 +25,8 @@
                 <div class="row">
                     <h3>รูปห้องเพิ่มเติม</h3>
                     @foreach ($albums as $album)
-                        <div class="col-3">
-                            <img src="{{ asset($album->name) }}" class="img-fluid " width="300"
+                        <div class="col-sm-12 col-md-4 col-lg-3 col-xl-3">
+                            <img src="{{ asset($album->name) }}" class="img-thumbnail " width="300"
                                 style="height: 300px;" alt="ไม่มีรูปภาพ">
                         </div>
                     @endforeach
