@@ -47,22 +47,13 @@
                         <span class="text-danger">@error('password')<strong>{{ $message }}</strong>@enderror</span>
 
 
-                        <div class="form-check form-check-lg d-flex align-items-end">
-                            <input class="form-check-input me-2" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-                            <label class="form-check-label text-gray-600" for="flexCheckDefault">
-                                จดจำรหัสผ่าน
-                            </label>
-                        </div>
+                       
                         <button class="btn btn-primary btn-block btn-lg shadow-lg mt-5">{{ __('เข้าสู่ระบบ') }}</button>
-                        @if (Route::has('password.request'))
-                        <a class="btn btn-link" href="{{ route('password.request') }}">
-                            {{ __('ลืมรหัสผ่าน ?') }}
-                        </a>
-                        @endif
+                      
                     </form>
                     <div class="text-center mt-5 text-lg fs-4">
                         <p class="text-gray-600">คุณยังไม่มีบัญชีใช่ไหม ? <a href="{{route('register')}}" class="font-bold">สมัครสมาชิก</a>.</p>
-                        <p><a class="font-bold" href="{{ route('password.request') }}">ลืมรหัสผ่าน ?</a></p>
+                       
                     </div>
                 </div>
             </div>

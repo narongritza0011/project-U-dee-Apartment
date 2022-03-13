@@ -126,7 +126,7 @@
 
                                                 @if ($check > 0)
                                                     <div class="text-danger mt-5">
-                                                        มีการค่างชำระไม่สามารถบันทึกย้ายออกได้
+                                                        มีการค้างชำระไม่สามารถบันทึกย้ายออกได้
                                                     </div>
                                                     <a class="btn btn-outline-success disabled ">บันทึก</a>
                                                 @else

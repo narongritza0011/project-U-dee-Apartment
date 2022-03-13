@@ -1,84 +1,69 @@
-html:after {
+/* html:after {
 
 
-    /* common custom values */
-
-    content: "Copyright by DEW";
-    /* your site name */
-
-    font-size: 200px;
-    /* font size */
-
-    /* color: rgba(0, 0, 0, .1); */
-    /* color: rgba(0, 0, 0, 0.63); */
-    background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);   -webkit-background-clip: text;
-    color: transparent;
-    /* alpha, could be even rgba(0,0,0,.05) */
 
 
-    /* rest of the logic */
-
-    z-index: 9999;
-
-    cursor: default;
-
-    display: block;
-
-    position: fixed;
-
-    top: 40%;
-
-    right: 0;
-
-    bottom: 0;
-
-    left: 0%;
-
-    font-family: sans-serif;
-
-    /*   font-weight: bold; */
-
-    /*   font-style: italic; */
-
-    text-align: center;
-
-    line-height: 100%;
+  content: "Copyright by DEW";
 
 
-    /* not sure about who implemented what ..
-  
-      ... so bring it all */
-
-    -webkit-pointer-events: none;
-
-    -moz-pointer-events: none;
-
-    -ms-pointer-events: none;
-
-    -o-pointer-events: none;
-
-    pointer-events: none;
+  font-size: 200px;
 
 
-    /*   -webkit-transform: rotate(-45deg);
-  
-    -moz-transform: rotate(-45deg);
-  
-    -ms-transform: rotate(-45deg);
-  
-    -o-transform: rotate(-45deg);
-  
-    transform: rotate(-45deg); */
+
+  background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);
+  -webkit-background-clip: text;
+  color: transparent;
 
 
-    -webkit-user-select: none;
+  z-index: 9999;
 
-    -moz-user-select: none;
+  cursor: default;
 
-    -ms-user-select: none;
+  display: block;
 
-    -o-user-select: none;
+  position: fixed;
 
-    user-select: none;
+  top: 40%;
 
-}
+  right: 0;
+
+  bottom: 0;
+
+  left: 0%;
+
+  font-family: sans-serif;
+
+
+
+  text-align: center;
+
+  line-height: 100%;
+
+
+
+
+  -webkit-pointer-events: none;
+
+  -moz-pointer-events: none;
+
+  -ms-pointer-events: none;
+
+  -o-pointer-events: none;
+
+  pointer-events: none;
+
+
+
+
+
+  -webkit-user-select: none;
+
+  -moz-user-select: none;
+
+  -ms-user-select: none;
+
+  -o-user-select: none;
+
+  user-select: none;
+
+} */
