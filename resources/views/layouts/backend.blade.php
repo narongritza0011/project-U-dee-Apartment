@@ -36,8 +36,16 @@
 
                     <div class="d-flex justify-content-between">
                         <div class="logo">
-                            <a href="index.html"><img src="{{ asset('assets/images/logo/logosai.png') }}" alt="Logo"
-                                    srcset=""></a>
+                            <div class="row">
+                                <div class="col-8"> <a href="/"><img
+                                            src="{{ asset('assets/images/logo/1180px-Checkmark_green.svg-removebg-preview.png') }}" alt="Logo"
+                                           ></a></div>
+                                <div class="col-4">
+                                    
+
+                                </div>
+                            </div>
+
                         </div>
 
 
@@ -64,14 +72,22 @@
                                 <span>ผู้ดูเเลระบบ</span>
                             </a>
                         </li>
-                        <li class="sidebar-item  {{ request()->is('admin/member*') ? 'active' : '' }}">
+                        {{-- <li class="sidebar-item  {{ request()->is('admin/member*') ? 'active' : '' }}">
                             <a href="{{ route('admin.member') }}" class='sidebar-link'>
                                 <i class="bi bi-person-lines-fill"></i>
                                 <span>สมาชิก</span>
                             </a>
+                        </li> --}}
+
+                        <li class="sidebar-item  {{ request()->is('admin/cars*') ? 'active' : '' }}">
+                            <a href="{{ route('cars.all') }}" class='sidebar-link'>
+                                <i class="bi bi-stack"></i>
+                                <span>ข้อมูลลูกค้า</span>
+                            </a>
                         </li>
 
-                        <!-- sidebar-item has-sub {{ request()->is('admin*') ? ' active' : '' }} -->
+
+                        {{-- <!-- sidebar-item has-sub {{ request()->is('admin*') ? ' active' : '' }} -->
                         <li class="sidebar-item has-sub  {{ request()->is('admin/all/*') ? 'active' : '' }}">
                             <a href="#" class='sidebar-link'>
                                 <i class="bi bi-house-door-fill"></i>
@@ -131,7 +147,7 @@
                                 <i class="bi bi-gear-fill"></i>
                                 <span>ตั้งค่า</span>
                             </a>
-                        </li>
+                        </li> --}}
 
                         <li class="sidebar-item ">
 
@@ -169,17 +185,7 @@
 
             </div>
 
-            <footer>
-                <div class="footer clearfix mb-0 text-muted">
-                    <div class="float-start">
-                        <p>2021 &copy; dew</p>
-                    </div>
-                    <div class="float-end">
-                        <p>Crafted with <span class="text-danger"><i class="bi bi-heart"></i></span> by <a
-                                href="http://ahmadsaugi.com"> dew</a></p>
-                    </div>
-                </div>
-            </footer>
+            
         </div>
     </div>
 

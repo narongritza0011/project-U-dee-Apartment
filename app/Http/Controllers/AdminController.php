@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\AdminRequestFrom;
+use App\Models\Car;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -15,8 +16,10 @@ class AdminController extends Controller
     function index()
     {
 
+        $data =  Car::all()->count();
 
-        return view('dashboards.admins.index');
+
+        return view('dashboards.admins.index', compact('data'));
     }
     function profile()
     {

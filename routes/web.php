@@ -2,8 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CarController;
 use App\Http\Controllers\RoomController;
 use App\Http\Controllers\RoomTypeController;
+use App\Http\Controllers\statusSelectController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 
@@ -18,10 +20,12 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', function () {
 
-    return view('welcome');
-});
+
+Route::get('/', [statusSelectController::class, 'index']);
+Route::post('/check_status', [statusSelectController::class, 'check_status'])->name('check_status');
+
+
 
 
 Route::middleware(['middleware' => 'PreventBackHistory'])->group(function () {
@@ -44,9 +48,27 @@ Route::group(['prefix' => 'admin', 'middleware' => ['isAdmin', 'auth', 'PreventB
 
 
 
+
+
+
     //สมาชิก
     Route::get('member', [AdminController::class, 'member'])->name('admin.member');
     Route::post('add-member', [AdminController::class, 'addMember'])->name('member.add');
+
+
+    //cars
+
+    Route::get('cars', [CarController::class, 'index'])->name('cars.all');
+    Route::post('cars/add', [CarController::class, 'store'])->name('cars.store');
+    Route::get('cars/edit/{id}', [CarController::class, 'edit'])->name('cars.edit');
+    Route::post('cars/update/{id}', [CarController::class, 'update'])->name('cars.update');
+    Route::get('cars/view/{id}', [CarController::class, 'view'])->name('cars.view');
+    Route::post('cars/checkCar', [CarController::class, 'StoreCheckCar'])->name('cars.StoreCheckCar');
+
+    Route::get('cars/delete/{id}', [CarController::class, 'delete'])->name('cars.delete');
+
+
+
 
 
 
